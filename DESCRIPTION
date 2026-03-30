@@ -1,0 +1,32 @@
+Package: nf-core R utils
+Version: 0.0.1
+Date: 2026-03-30
+Title: nf-core utility R functions
+Authors@R: c(
+    person("nf-core", "Community", role="aut")
+    person("Louis", "Le Nezet", email="louislenezet@gmail.com",
+        role=c("aut","cre","ctb"), comment = c(ORCID = "0009-0000-0202-2703"))
+)
+Depends: 
+	R (>= 4.4.0)
+Imports: 
+    
+Description: Routines functions to handle Nextflow input and perform validity check.
+License: MIT
+Encoding: UTF-8
+RoxygenNote: 7.3.2
+Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr
+Suggests: 
+    diffviewer,
+    testthat (>= 3.0.0),
+    vdiffr,
+    rmarkdown,
+    BiocStyle,
+    knitr,
+    withr,
+    qpdf,
+    devtools
+Config/testthat/edition: 3
+BugReports: https://github.com/nf-core/nf-core-r-utils/issues
+URL: https://github.com/nf-core/nf-core-r-utils/

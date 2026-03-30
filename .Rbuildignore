@@ -1,0 +1,12 @@
+^\.github$
+^\\.git$
+\\.Rprofile
+.*\.lintr
+^\\.gitignore$
+\.vscode
+LICENSE
+_\.new\.png$
+^codecov\.yml$
+\.covrignore
+pkgdown
+Rplots.pdf
