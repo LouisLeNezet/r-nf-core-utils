@@ -4,7 +4,7 @@ library(hexSticker)
 library(magick)
 
 package_name <- "nf-core R utils"
-path_no_ext <- "inst/figures/icon_nf-core_utils"
+path_no_ext <- "inst/figures/icon_nfcore_utils"
 h_color <- "#3792ad"
 h_fill <- "#FFFFFF"
 p_color <- "#000000"

@@ -1,4 +1,4 @@
-# `R nf-core-utlis`: a R package to join Nextflow and R
+# `R nfcore_utils`: a R package to join Nextflow and R
 
 <!-- badges: start -->
   [![Release](https://img.shields.io/badge/release%20version-0.0.1-green.svg)](https://github.com/nf-core/nf-core-r-utils)
@@ -24,8 +24,8 @@
 ### With conda-forge
 
 ```bash
-mamba create -n env_nf_core_utils conda-forge::r-nf-core-utils
-mamba activate env_nf_core_utils
+mamba create -n env_nfcore_utils conda-forge::r-nfcore_utils
+mamba activate env_nfcore_utils
 ```
 
 ### In R from Github
@@ -39,10 +39,10 @@ remotes::install_github("nf-core/nf-core-r-utils",
 )
 ```
 
-### In R from [CRAN](https://cran.r-project.org/web/packages/nf-core-utils/index.html)
+### In R from [CRAN](https://cran.r-project.org/web/packages/nfcore_utils/index.html)
 
 ```R
-install.packages("nf-core-utils")
+install.packages("nfcore_utils")
 ```
 
 ## Main functions
@@ -52,7 +52,7 @@ install.packages("nf-core-utils")
 Here is a simple example that show how to represent a complex pedigree with a lot of different information.
 
 ```R
-library(nf-core-utils)
+library(nfcore_utils)
 ```
 
 ## Documentation, News and Citation
@@ -60,17 +60,17 @@ library(nf-core-utils)
 To view documentation start R and enter:
 
 ```R
-library(nf-core-utils)
-help(package="nf-core-utils")
+library(nfcore_utils)
+help(package="nfcore-utils")
 
 # Or to view the vignettes
-browseVignettes("nf-core-utils")
+browseVignettes("nfcore_utils")
 
 # Or to see the news
-utils::news(package="nf-core-utils")
+utils::news(package="nfcore_utils")
 
 # Or to cite Pedixplore
-citation("nf-core-utils")
+citation("nfcore_utils")
 ```
 
 ## Credits

@@ -6,7 +6,7 @@
 # * https://r-pkgs.org/tests.html
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
-library(nf-core-utils)
+library(nfcore.utils)
 
 ## Run the tests
-test_check("nf-core-utils")
+test_check("nfcore.utils")
