@@ -51,3 +51,37 @@ create_versions_yml <- function(packages, task_name, out_dir = ".") {
         paste0("    ", names(pkg_lst), ": ", pkg_lst)
     ), file.path(out_dir, "versions.yml"))
 }
+
+#' Log R session info
+#' 
+#' This function logs the R session info to a file named `R_sessionInfo.log`
+#' in the specified output directory.
+#' 
+#' @param out_dir Output directory where the R session info log will be
+#' written to. Default is the current directory.
+#' 
+#' @return R session info log
+#' @examples
+#' create_log_session_info("output_dir")
+#' @export
+create_log_session_info <- function(out_dir = ".") {
+    sink(file.path(out_dir, "R_sessionInfo.log", sep = '.'))
+    print(sessionInfo())
+    sink()
+}
+
+#' Process end of the workflow
+#' 
+#' Create the versions.yml file and log session info at the end of the process.
+#' 
+#' @inheritParams create_versions_yml
+#' @inheritParams create_log_session_info
+#' 
+#' @return versions.yml file and R session info log
+#' @examples
+#' process_end(list("r-stats" = "stats"), "MY_PROCESS", "output_dir")
+#' @export
+process_end <- function(packages, task_name, output_prefix, out_dir = ".") {
+    create_log_session_info(out_dir)
+    create_versions_yml(packages, task_name, out_dir)
+}

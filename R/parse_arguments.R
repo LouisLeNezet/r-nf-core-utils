@@ -3,6 +3,10 @@
 #' @param x Long-form argument list like --opt1 val1 --opt2 val2
 #'
 #' @return named list of options and values similar to optparse
+#' @examples
+#' parse_arguments("--opt1 val1 --opt2 val2")
+#' parse_arguments(' --opt1-extra "value with space" --opt2 val2 ')
+#' @export
 parse_arguments <- function(x) {
   x <- valid_string(x)
 

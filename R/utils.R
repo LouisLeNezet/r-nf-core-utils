@@ -13,6 +13,7 @@
 #' is_valid_string(" Hello World ") # Returns TRUE
 #' is_valid_string("   ")         # Returns FALSE
 #' is_valid_string(NULL)          # Returns FALSE
+#' @export
 is_valid_string <- function(input) {
   !is.null(input) && nzchar(trimws(input))
 }
@@ -29,6 +30,7 @@ is_valid_string <- function(input) {
 #' valid_string("  Hello World ") # Returns "Hello World"
 #' valid_string("   ")         # Error
 #' valid_string(NULL)          # Error
+#' @export
 valid_string <- function(input) {
     if (is_valid_string(input)) {
         trimws(input)
@@ -43,6 +45,14 @@ valid_string <- function(input) {
 #'
 #' @return NULL or x
 #'
+#' @examples
+#' nullify("null") # Returns NULL
+#' nullify("NULL") # Returns NULL
+#' nullify("   ")  # Returns NULL
+#' nullify("")     # Returns NULL
+#' nullify(NULL)   # Returns NULL
+#' nullify(NA)     # Returns NULL
+#' nullify("Hello") # Returns "Hello"
 nullify <- function(x) {
   if (is.character(x) && (tolower(x) %in% "null" || trimws(x) == "")) {
     NULL
