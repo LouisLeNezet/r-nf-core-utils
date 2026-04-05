@@ -9,7 +9,7 @@ process_inputs(
   args = NULL,
   keys_to_nullify = NULL,
   expected_files = NULL,
-  expected_folder = NULL,
+  expected_folders = NULL,
   expected_double = NULL,
   expected_integer = NULL,
   required_opts = NULL
@@ -24,9 +24,13 @@ process_inputs(
 
 \item{expected_files}{A character vector of keys in \code{opt} that are expected to be file paths.}
 
-\item{required_opts}{A character vector of keys in \code{opt} that are required and must not be null or empty.}
+\item{expected_folders}{A character vector of keys in \code{opt} that are expected to be folder paths.}
 
-\item{expected_numeric}{A character vector of keys in \code{opt} that are expected to be numeric values.}
+\item{expected_double}{A character vector of keys in \code{opt} that are expected to be float values.}
+
+\item{expected_integer}{A character vector of keys in \code{opt} that are expected to be integer values.}
+
+\item{required_opts}{A character vector of keys in \code{opt} that are required and must not be null or empty.}
 }
 \value{
 A list of processed options with overrides applied and validated.

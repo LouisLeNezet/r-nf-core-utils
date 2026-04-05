@@ -6,6 +6,7 @@
 #' @examples
 #' parse_arguments("--opt1 val1 --opt2 val2")
 #' parse_arguments(' --opt1-extra "value with space" --opt2 val2 ')
+#' @export
 parse_arguments <- function(x) {
   if (is.null(x)) {
     return(list())

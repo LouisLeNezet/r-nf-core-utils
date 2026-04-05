@@ -9,21 +9,20 @@ Authors@R: c(
     )
 Depends: R (>= 4.4.0)
 Description: Routines functions to handle Nextflow input and perform validity check.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
 Suggests: 
-    diffviewer,
     testthat (>= 3.0.0),
-    vdiffr,
     rmarkdown,
     BiocStyle,
     knitr,
     withr,
     qpdf,
     devtools,
+    yaml,
     covr
 Config/testthat/edition: 3
 BugReports: https://github.com/nf-core/nf-core-r-utils/issues

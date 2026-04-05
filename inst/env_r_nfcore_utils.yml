@@ -7,3 +7,7 @@ dependencies:
   - conda-forge::r-magick
   - conda-forge::r-ggiraph
   - conda-forge::r-covr
+  - conda-forge::r-knitr
+  - conda-forge::r-qpdf
+  - conda-forge::qpdf
+  - bioconda::bioconductor-biocstyle

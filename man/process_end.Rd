@@ -25,5 +25,6 @@ versions.yml file and R session info log
 Create the versions.yml file and log session info at the end of the process.
 }
 \examples{
-process_end(list("r-stats" = "stats"), "MY_PROCESS", "output_dir")
+td <- withr::local_tempdir()
+process_end(list("r-stats" = "stats"), "MY_PROCESS", td)
 }

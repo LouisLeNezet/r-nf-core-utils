@@ -18,5 +18,6 @@ This function logs the R session info to a file named \code{R_sessionInfo.log}
 in the specified output directory.
 }
 \examples{
-create_log_session_info("output_dir")
+td <- withr::local_tempdir()
+create_log_session_info(td)
 }

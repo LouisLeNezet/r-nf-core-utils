@@ -17,7 +17,8 @@
 #' @return versions.yml file
 #' 
 #' @examples
-#' create_versions_yml(list("r-stats" = "stats"), "MY_PROCESS")
+#' td <- withr::local_tempdir()
+#' create_versions_yml(list("r-stats" = "stats"), "MY_PROCESS", td)
 #' @export
 create_versions_yml <- function(packages, task_name, out_dir = ".") {
 
@@ -62,7 +63,8 @@ create_versions_yml <- function(packages, task_name, out_dir = ".") {
 #' 
 #' @return R session info log
 #' @examples
-#' create_log_session_info("output_dir")
+#' td <- withr::local_tempdir()
+#' create_log_session_info(td)
 #' @export
 create_log_session_info <- function(out_dir = ".") {
     if(!dir.exists(out_dir)){
@@ -82,7 +84,8 @@ create_log_session_info <- function(out_dir = ".") {
 #' 
 #' @return versions.yml file and R session info log
 #' @examples
-#' process_end(list("r-stats" = "stats"), "MY_PROCESS", "output_dir")
+#' td <- withr::local_tempdir()
+#' process_end(list("r-stats" = "stats"), "MY_PROCESS", td)
 #' @export
 process_end <- function(packages, task_name, out_dir = ".") {
     create_log_session_info(out_dir)

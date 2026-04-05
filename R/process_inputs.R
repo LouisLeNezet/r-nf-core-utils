@@ -7,7 +7,9 @@
 #' @param args A character vector of command-line arguments to override defaults.
 #' @param keys_to_nullify A character vector of keys that should be nullified.
 #' @param expected_files A character vector of keys in `opt` that are expected to be file paths.
-#' @param expected_numeric A character vector of keys in `opt` that are expected to be numeric values.
+#' @param expected_folders A character vector of keys in `opt` that are expected to be folder paths.
+#' @param expected_double A character vector of keys in `opt` that are expected to be float values.
+#' @param expected_integer A character vector of keys in `opt` that are expected to be integer values.
 #' @param required_opts A character vector of keys in `opt` that are required and must not be null or empty.
 #' @return A list of processed options with overrides applied and validated.
 #' @examples
@@ -26,7 +28,7 @@ process_inputs <- function(
   opt, args = NULL,
   keys_to_nullify = NULL,
   expected_files = NULL,
-  expected_folder = NULL,
+  expected_folders = NULL,
   expected_double = NULL,
   expected_integer = NULL,
   required_opts = NULL
@@ -61,7 +63,7 @@ process_inputs <- function(
 
   # Check file and folder inputs
   opt[expected_files] <- lapply(expected_files, function(x){validate_file(opt[[x]], x)})
-  opt[expected_folder] <- lapply(expected_folder, function(x){validate_folder(opt[[x]], x)})
+  opt[expected_folders] <- lapply(expected_folders, function(x){validate_folder(opt[[x]], x)})
 
   # Check numeric inputs
   opt[expected_double] <- lapply(expected_double, function(x){validate_double(opt[[x]], x)})

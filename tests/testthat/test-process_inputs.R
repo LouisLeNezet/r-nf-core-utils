@@ -19,7 +19,7 @@ test_that("process_inputs", {
       opt,
       keys_to_nullify = c("folder"),
       expected_files = c("files"),
-      expected_folder = c("folder"),
+      expected_folders = c("folder"),
       expected_double = c("value"),
       expected_integer = c("value2", "value3"),
       required_opts = c("tools", "value")
@@ -50,7 +50,7 @@ test_that("process_inputs", {
       opt, args = args,
       keys_to_nullify = c("folder"),
       expected_files = c("files"),
-      expected_folder = c("folder"),
+      expected_folders = c("folder"),
       expected_double = c("value"),
       expected_integer = c("value2"),
       required_opts = c("tools", "value")
@@ -71,7 +71,7 @@ test_that("process_inputs, files/folder error", {
   expect_error(
     process_inputs(
       opt,
-      expected_folder = c("folder")
+      expected_folders = c("folder")
     ),
     regexp = ".*is not a valid folder"
   )
@@ -81,7 +81,7 @@ test_that("process_inputs, files/folder error", {
   expect_error(
     process_inputs(
       opt,
-      expected_folder = c("folder")
+      expected_folders = c("folder")
     ),
     regexp = "Please provide folder as a valid string"
   )
@@ -113,7 +113,7 @@ test_that("process_inputs, missing key", {
   expect_error(
     process_inputs(
       opt,
-      expected_folder = c("folder"),
+      expected_folders = c("folder"),
       expected_files = c("files")
     ),
     regexp = "All keys to process should be in the default options"
@@ -126,7 +126,7 @@ test_that("process_inputs, missing argument", {
   expect_error(
     process_inputs(
       opt, args = "--files test_file.txt",
-      expected_folder = c("folder")
+      expected_folders = c("folder")
     ),
     regexp = "Option: files not found in options"
   )

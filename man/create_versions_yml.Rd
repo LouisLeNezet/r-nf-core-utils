@@ -28,5 +28,6 @@ versions.yml file used to store the packages used.
 automatically be added.
 }
 \examples{
-create_versions_yml(list("r-stats" = "stats"), "MY_PROCESS")
+td <- withr::local_tempdir()
+create_versions_yml(list("r-stats" = "stats"), "MY_PROCESS", td)
 }

@@ -2,9 +2,20 @@
 title: "nf-core utils tutorial"
 author: "Louis Le Nezet"
 date: "30/03/2026"
-url: "https://github.com/nf-core/nf-core-r-utils"
+url: "https://github.com/nf-core/r-snf-core-utils"
 output:
-    html
+    BiocStyle::html_document:
+        toc: true
+        toc_depth: 2
+        fig_crop: no
+header-includes: \usepackage{tabularx}
+vignette: |
+    %\VignetteIndexEntry{R nf-core utils tutorial}
+    %\VignetteEncoding{UTF-8}
+    %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+    markdown: 
+        wrap: 72
 ---
 
 ```{r width_control, echo = FALSE}

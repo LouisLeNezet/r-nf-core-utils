@@ -3,5 +3,7 @@
 export(create_log_session_info)
 export(create_versions_yml)
 export(is_valid_string)
+export(nullify)
+export(parse_arguments)
 export(process_end)
 export(valid_string)

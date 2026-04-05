@@ -28,8 +28,8 @@ is_valid_string <- function(input) {
 #' @examples
 #' valid_string("Hello World") # Returns "Hello World"
 #' valid_string("  Hello World ") # Returns "Hello World"
-#' valid_string("   ")         # Error
-#' valid_string(NULL)          # Error
+#' try(valid_string("   ")) # Error
+#' try(valid_string(NULL)) # Error
 #' @export
 valid_string <- function(input) {
     if (is_valid_string(input)) {
@@ -53,6 +53,7 @@ valid_string <- function(input) {
 #' nullify(NULL)   # Returns NULL
 #' nullify(NA)     # Returns NULL
 #' nullify("Hello") # Returns "Hello"
+#' @export
 nullify <- function(x) {
   if (is.character(x) && (tolower(x) %in% "null" || trimws(x) == "")) {
     NULL

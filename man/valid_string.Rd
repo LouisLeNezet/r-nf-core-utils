@@ -19,6 +19,6 @@ just whitespace.
 \examples{
 valid_string("Hello World") # Returns "Hello World"
 valid_string("  Hello World ") # Returns "Hello World"
-valid_string("   ")         # Error
-valid_string(NULL)          # Error
+try(valid_string("   ")) # Error
+try(valid_string(NULL)) # Error
 }
