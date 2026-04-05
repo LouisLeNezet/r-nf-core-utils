@@ -10,7 +10,8 @@ test_that("process_inputs", {
     value2 = "1234",
     value3 = NULL,
     folder = td,
-    files = test_file_path
+    files = test_file_path,
+    seed = 1234
   )
 
   expect_equal(
@@ -24,12 +25,13 @@ test_that("process_inputs", {
       required_opts = c("tools", "value")
     ),
     list(
-      "tools" = "default",
-      "value" = 1234.56,
-      "value2" = 1234,
-      "value3" = NULL,
-      "folder" = td,
-      "files" = test_file_path
+      tools = "default",
+      value = 1234.56,
+      value2 = 1234,
+      value3 = NULL,
+      folder = td,
+      files = test_file_path,
+      seed = 1234
     )
   )
 

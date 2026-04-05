@@ -4,7 +4,7 @@
 \alias{process_end}
 \title{Process end of the workflow}
 \usage{
-process_end(packages, task_name, output_prefix, out_dir = ".")
+process_end(packages, task_name, out_dir = ".")
 }
 \arguments{
 \item{packages}{Named list of packages to add to  the

@@ -9,4 +9,4 @@
 library(nfcore.utils)
 
 ## Run the tests
-test_check("nfcore.utils")
+testthat::test_check("nfcore.utils")

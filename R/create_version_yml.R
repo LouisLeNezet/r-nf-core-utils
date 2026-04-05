@@ -65,7 +65,10 @@ create_versions_yml <- function(packages, task_name, out_dir = ".") {
 #' create_log_session_info("output_dir")
 #' @export
 create_log_session_info <- function(out_dir = ".") {
-    sink(file.path(out_dir, "R_sessionInfo.log", sep = '.'))
+    if(!dir.exists(out_dir)){
+        stop(out_dir, " folder provided does not exist")
+    }
+    sink(file.path(out_dir, "R_sessionInfo.log"))
     print(sessionInfo())
     sink()
 }
@@ -81,7 +84,7 @@ create_log_session_info <- function(out_dir = ".") {
 #' @examples
 #' process_end(list("r-stats" = "stats"), "MY_PROCESS", "output_dir")
 #' @export
-process_end <- function(packages, task_name, output_prefix, out_dir = ".") {
+process_end <- function(packages, task_name, out_dir = ".") {
     create_log_session_info(out_dir)
     create_versions_yml(packages, task_name, out_dir)
 }

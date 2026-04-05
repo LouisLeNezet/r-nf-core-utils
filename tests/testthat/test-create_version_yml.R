@@ -76,3 +76,28 @@ test_that("create_versions_yml package not a valid string", {
         "MY_PROCESS"
     ), regexp = ".*is not a valid string")
 })
+
+test_that("create_log_session_info", {
+    td <- withr::local_tempdir()
+    create_log_session_info(td)
+    log_path <- file.path(td, "R_sessionInfo.log")
+    expect_true(file.exists(log_path))
+
+    expect_error(create_log_session_info(
+        out_dir = "wrong_path"
+    ), regexp = "wrong_path folder provided does not exist")
+})
+
+test_that("process_end", {
+    td <- withr::local_tempdir()
+    process_end(
+        list(
+            "r-stats" = "stats",
+            "r-cli" = "cli" 
+        ), "MY_PROCESS", out_dir = td
+    )
+    log_path <- file.path(td, "R_sessionInfo.log")
+    expect_true(file.exists(log_path))
+    yml_path <- file.path(td, "versions.yml")
+    expect_true(file.exists(yml_path))
+})

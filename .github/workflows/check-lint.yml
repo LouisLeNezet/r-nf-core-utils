@@ -89,6 +89,27 @@ jobs:
         env:
           LINTR_ERROR_ON_LINT: true
 
+      - name: Test coverage
+        if: env.run_covr == 'true' && runner.os == 'Linux'
+        env:
+          SKIP_SHINY_TESTS: "TRUE"
+        run: |
+          cov <- covr::package_coverage(
+            quiet = FALSE,
+            clean = FALSE,
+            install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"), "package")
+          )
+          covr::to_cobertura(cov)
+        shell: Rscript {0}
+
+      - uses: codecov/codecov-action@v4
+        if: env.run_covr == 'true' && runner.os == 'Linux'
+        with:
+          file: ./cobertura.xml
+          plugin: noop
+          disable_search: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+
       - name: Debug check
         if : failure()
         run: find . -name 00check.log -exec cat '{}' ';'
