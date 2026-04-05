@@ -13,6 +13,11 @@ test_that("parse_arguments", {
         parse_arguments('--tools test --test-value "value with--dash"'),
         list("tools" = "test", "test-value" = "value with--dash")
     )
+
+    expect_equal(
+        parse_arguments(NULL),
+        list()
+    )
 })
 
 test_that("parse_arguments errors", {
@@ -33,7 +38,7 @@ test_that("parse_arguments errors", {
 
     expect_error(
         parse_arguments("--good arg bad test"),
-        regexp = "arguments should only start with two dash"
+        regexp = "arguments should only be in the form --argument value"
     )
 
     expect_error(

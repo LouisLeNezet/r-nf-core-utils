@@ -6,8 +6,11 @@
 #' @examples
 #' parse_arguments("--opt1 val1 --opt2 val2")
 #' parse_arguments(' --opt1-extra "value with space" --opt2 val2 ')
-#' @export
 parse_arguments <- function(x) {
+  if (is.null(x)) {
+    return(list())
+  }
+
   x <- valid_string(x)
 
   bad <- grepl("(^| )(-\\w|-{3,}\\w)", x)
@@ -15,7 +18,7 @@ parse_arguments <- function(x) {
     stop("arguments should only start with two dash")
   }
 
-  args_list <- unlist(strsplit(x, " ?--")[[1]])[-1]
+  args_list <- unlist(strsplit(x, "(^| )?--")[[1]])[-1]
   args_vals <- lapply(
     args_list,
     function(x) scan(text = x, what = "character", quiet = TRUE)
@@ -23,7 +26,12 @@ parse_arguments <- function(x) {
 
   # Ensure the option vectors are length 2 (key/ value) to catch empty ones
   args_vals <- lapply(args_vals, function(z) {
-    length(z) <- 2
+    if (length(z) == 1) {
+      z <- c(z, NA)
+    }
+    if (length(z) != 2) {
+      stop("arguments should only be in the form --argument value")
+    }
     z
   })
 
@@ -36,5 +44,7 @@ parse_arguments <- function(x) {
   if (length(parsed_args) == 0 && length(x) > 0) {
     stop(x, " is not written as --argument value")
   }
+
+  parsed_args
 
 }

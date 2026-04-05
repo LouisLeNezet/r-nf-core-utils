@@ -1,16 +1,19 @@
 #' Flexibly read CSV or TSV files
+#' 
+#' The following rules are applied:
+#' - extension == txt or tsv, then separator is set to tabulation
+#' - extension == csv, then separator is set to comma
 #'
 #' @param file Input file
-#' @param header Passed to read.delim()
-#' @param row.names Passed to read.delim()
+#' @inheritDotParams utils::read.delim -file -sep
 #'
 #' @return output Data frame
-read_delim_flexible <- function(file, header = TRUE, row.names = NULL, check.names = TRUE){
+read_delim_flexible <- function(file, ...){
 
-  ext <- tolower(tail(strsplit(basename(file), split = "\\\\.")[[1]], 1))
+  ext <- tolower(tail(strsplit(basename(file), split = "\\.")[[1]], 1))
 
   if (ext == "tsv" || ext == "txt") {
-    separator <- "\\t"
+    separator <- "\t"
   } else if (ext == "csv") {
     separator <- ","
   } else {
@@ -20,8 +23,6 @@ read_delim_flexible <- function(file, header = TRUE, row.names = NULL, check.nam
   read.delim(
     file,
     sep = separator,
-    header = header,
-    row.names = row.names,
-    check.names = check.names
+    ...
   )
 }
