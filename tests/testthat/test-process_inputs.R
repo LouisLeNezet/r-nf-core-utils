@@ -135,6 +135,26 @@ test_that("process_inputs, missing argument", {
     ),
     regexp = "Option: files not found in options"
   )
+
+  opt <- list(folder = NULL)
+
+  expect_error(
+    process_inputs(
+      opt,
+      required_opts = c("folder")
+    ),
+    regexp = "Missing required options: folder"
+  )
+
+  opt <- list(folder = "  ")
+
+  expect_error(
+    process_inputs(
+      opt,
+      required_opts = c("folder")
+    ),
+    regexp = "Missing required options: folder"
+  )
 })
 
 
