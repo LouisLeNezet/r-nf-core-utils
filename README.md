@@ -2,7 +2,7 @@
 
 <!-- badges: start -->
   [![Release](https://img.shields.io/badge/release%20version-0.0.1-green.svg)](https://github.com/nf-core/nf-core-r-utils)
-  [![codecov](https://codecov.io/github/louislenezet/r-nf-core-utils/graph/badge.svg?token=A3EGOR8AUG)](https://codecov.io/github/louislenezet/r-nf-core-utils)
+  [![codecov](https://codecov.io/github/louislenezet/r-nf-core-utils/branch/dev/graph/badge.svg?token=A3EGOR8AUG)](https://codecov.io/github/louislenezet/r-nf-core-utils)
   ![install with conda-forge](https://img.shields.io/badge/install%20with-conda-forge-brightgreen.svg?style=flat)
 <!-- badges: end -->
 
