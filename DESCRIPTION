@@ -23,7 +23,8 @@ Suggests:
     knitr,
     withr,
     qpdf,
-    devtools
+    devtools,
+    covr
 Config/testthat/edition: 3
 BugReports: https://github.com/nf-core/nf-core-r-utils/issues
 URL: https://github.com/nf-core/nf-core-r-utils/
