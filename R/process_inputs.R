@@ -13,8 +13,10 @@
 #' @param required_opts A character vector of keys in `opt` that are required and must not be null or empty.
 #' @return A list of processed options with overrides applied and validated.
 #' @examples
-#' \dontrun{
-#' options <- list(input_file = "test.csv", output_file = "prefix", threshold = 0.5)
+#' td <- withr::local_tempdir()
+#' test_file_path <- file.path(td, "test_file.txt")
+#' file.create(test_file_path)
+#' options <- list(input_file = test_file_path, output_file = "prefix", threshold = 0.5)
 #' args <- c("--threshold 0.7")
 #' processed_options <- process_inputs(
 #'   options, args,
@@ -23,7 +25,7 @@
 #'   expected_double = c("threshold"),
 #'   required_opts = c("input_file", "threshold")
 #' )
-#' }
+#' @export
 process_inputs <- function(
   opt, args = NULL,
   keys_to_nullify = NULL,

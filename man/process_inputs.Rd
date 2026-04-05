@@ -40,8 +40,10 @@ This function processes input parameters and files, applying parameter overrides
 validating expected keys and files, and ensuring that the provided file paths are valid.
 }
 \examples{
-\dontrun{
-options <- list(input_file = "test.csv", output_file = "prefix", threshold = 0.5)
+td <- withr::local_tempdir()
+test_file_path <- file.path(td, "test_file.txt")
+file.create(test_file_path)
+options <- list(input_file = test_file_path, output_file = "prefix", threshold = 0.5)
 args <- c("--threshold 0.7")
 processed_options <- process_inputs(
   options, args,
@@ -50,5 +52,4 @@ processed_options <- process_inputs(
   expected_double = c("threshold"),
   required_opts = c("input_file", "threshold")
 )
-}
 }

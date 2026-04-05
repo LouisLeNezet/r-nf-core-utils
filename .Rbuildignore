@@ -9,6 +9,7 @@ _\.new\.png$
 \.covrignore
 pkgdown
 Rplots.pdf
-CITATIONS.md
 CODE_OF_CONDUCT.md
 ^LICENSE\.md$
+^doc$
+^Meta$

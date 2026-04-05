@@ -1,7 +1,7 @@
 Package: nfcore.utils
 Version: 0.0.1
 Date: 2026-03-30
-Title: nf-core utility R functions
+Title: R nf-core utility functions
 Authors@R: c(
     person("nf-core", "Community", role="aut"),
     person("Louis", "Le Nezet", email="louislenezet@gmail.com",
@@ -25,5 +25,5 @@ Suggests:
     yaml,
     covr
 Config/testthat/edition: 3
-BugReports: https://github.com/nf-core/nf-core-r-utils/issues
-URL: https://github.com/nf-core/nf-core-r-utils/
+BugReports: https://github.com/nf-core/r-nfcore-utils/issues
+URL: https://github.com/nf-core/r-nfcore-utils/

@@ -24,8 +24,8 @@
 ### With conda-forge
 
 ```bash
-mamba create -n env_nfcore_utils conda-forge::r-nfcore_utils
-mamba activate env_nfcore_utils
+mamba create -n env_r_nfcore_utils conda-forge::r-nfcore_utils
+mamba activate env_r_nfcore_utils
 ```
 
 ### In R from Github
@@ -34,7 +34,7 @@ mamba activate env_nfcore_utils
 if (!require("remotes", quietly = TRUE))
     install.packages("remotes")
 
-remotes::install_github("nf-core/nf-core-r-utils",
+remotes::install_github("nf-core/r-nf-core-utils",
     build_vignettes=TRUE
 )
 ```
@@ -45,14 +45,56 @@ remotes::install_github("nf-core/nf-core-r-utils",
 install.packages("nfcore_utils")
 ```
 
-## Main functions
+## Usage example in a Nextflow template
 
-### Example
-
-Here is a simple example that show how to represent a complex pedigree with a lot of different information.
+Here is a simple example that show how to use the package in a Nextflow process template.
 
 ```R
-library(nfcore_utils)
+library(nfcore.utils)
+
+################################################
+## INPUTS PARSING                             ##
+################################################
+
+# First define the options list you need
+opt <- list(
+  output_prefix = '${prefix}',
+  input_file = '${input}',
+  output_folder = '${output_folder}',
+  value_integer = 1234, # Can be set to a default value
+  value_double = 0.1234,
+  seed = NULL # Will be set at the start of the script
+)
+
+# Call main function with validation checks
+opt_valid <- process_inputs(
+  opt,
+  args = '${args}', # Args provided as --key value, will replace default value
+  keys_to_nullify = c("output_prefix"),
+  expected_files = c("input_file"),
+  expected_folders = c("output_folder"),
+  expected_double = c("value_double"),
+  expected_integer = c("value_integer"),
+  required_opts = c("input_file", "output_folder")
+)
+
+################################################
+## MAIN SCRIPT                                ##
+################################################
+
+# Write here your script and outputs
+
+################################################
+## VERSIONS and LOG EMISSION                  ##
+################################################
+
+process_end(
+  packages = list( # Write additionaly used packages
+    "r-stats" = "stats" # conda package name = r package name
+  ),
+  task_name = '"${task.process}":',
+  outdir = "."
+)
 ```
 
 ## Documentation, News and Citation
@@ -60,17 +102,17 @@ library(nfcore_utils)
 To view documentation start R and enter:
 
 ```R
-library(nfcore_utils)
-help(package="nfcore-utils")
+library(nfcore.utils)
+help(package="nfcore.utils")
 
 # Or to view the vignettes
-browseVignettes("nfcore_utils")
+browseVignettes("nfcore.utils")
 
 # Or to see the news
-utils::news(package="nfcore_utils")
+utils::news(package="nfcore.utils")
 
-# Or to cite Pedixplore
-citation("nfcore_utils")
+# Or to cite nfcore.utils
+citation("nfcore.utils")
 ```
 
 ## Credits
