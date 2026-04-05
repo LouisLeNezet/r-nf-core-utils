@@ -29,7 +29,7 @@
 #'   input_file = test_file_path,
 #'   output_file = "prefix",
 #'   threshold = 0.5,
-#'   is-a-test = NULL
+#'   "is-a-test" = NULL
 #' )
 #' args <- c("--threshold 0.7 --is-a-test")
 #' processed_options <- process_inputs(

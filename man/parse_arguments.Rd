@@ -13,7 +13,7 @@ parse_arguments(x)
 named list of options and values similar to optparse
 }
 \description{
-Parse out options from a string without recourse to optparse
+If only the key is given, the value will be set to TRUE
 }
 \examples{
 parse_arguments("--opt1 val1 --opt2 val2")

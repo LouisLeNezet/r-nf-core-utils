@@ -2,7 +2,7 @@
 % Please edit documentation in R/validate.R
 \name{validate_double}
 \alias{validate_double}
-\title{Check if value is double number}
+\title{Check if value is a double number}
 \usage{
 validate_double(x, variable_name = NULL)
 }
@@ -16,7 +16,7 @@ x as double, or NULL if is null and ERROR if x
 isn't convertable to a double
 }
 \description{
-Check if value is double number
+Check if value is a double number
 }
 \examples{
 validate_double(NULL) # NULL

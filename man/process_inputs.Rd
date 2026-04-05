@@ -12,6 +12,7 @@ process_inputs(
   expected_folders = NULL,
   expected_double = NULL,
   expected_integer = NULL,
+  expected_boolean = NULL,
   required_opts = NULL
 )
 }
@@ -35,6 +36,9 @@ expected to be float values.}
 \item{expected_integer}{A character vector of keys in \code{opt} that are
 expected to be integer values.}
 
+\item{expected_boolean}{A character vector of keys in \code{opt} that are
+expected to be boolean values.}
+
 \item{required_opts}{A character vector of keys in \code{opt} that are
 required and must not be null or empty.}
 }
@@ -53,14 +57,16 @@ file.create(test_file_path)
 options <- list(
   input_file = test_file_path,
   output_file = "prefix",
-  threshold = 0.5
+  threshold = 0.5,
+  "is-a-test" = NULL
 )
-args <- c("--threshold 0.7")
+args <- c("--threshold 0.7 --is-a-test")
 processed_options <- process_inputs(
   options, args,
   keys_to_nullify = c("input_file", "output_file"),
   expected_files = c("input_file"),
   expected_double = c("threshold"),
+  expected_boolean = c("is-a-test"),
   required_opts = c("input_file", "threshold")
 )
 }
