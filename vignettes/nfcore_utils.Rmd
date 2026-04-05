@@ -45,8 +45,8 @@ with Nextflow variable such as:
 
 ```{r, eval = FALSE}
 opt <- list(
-    prefix = "${task.ext.prefix}",
-    seed = 1
+  prefix = "${task.ext.prefix}",
+  seed = 1
 )
 ```
 
@@ -86,10 +86,10 @@ Such as:
 
 ```{r, eval = FALSE}
 process_end(
-    packages = list(
-        "r-stats" = "stats"
-    ),
-    task_name = "${task.process}"
+  packages = list(
+    "r-stats" = "stats"
+  ),
+  task_name = "${task.process}"
 )
 ```
 
@@ -101,28 +101,28 @@ The nextflow process is the following:
 
 ```{groovy, eval = FALSE}
 process CUSTOM_GENETICMAPCONVERT {
-    tag "$meta.id"
-    label 'process_single'
+  tag "$meta.id"
+  label 'process_single'
 
-    input:
-    tuple val(meta), path(map_file)
+  input:
+  tuple val(meta), path(map_file)
 
-    output:
-    tuple val(meta), path("${prefix}.glimpse.map"), emit: glimpse_map
-    path "versions.yml", emit: versions_geneticmapconvert, topic: versions
+  output:
+  tuple val(meta), path("${prefix}.glimpse.map"), emit: glimpse_map
+  path "versions.yml", emit: versions_geneticmapconvert, topic: versions
 
-    when:
-    task.ext.when == null || task.ext.when
+  when:
+  task.ext.when == null || task.ext.when
 
-    script:
-    prefix = task.ext.prefix ?: "${meta.id}"
-    args = task.ext.args ?: ''
+  script:
+  prefix = task.ext.prefix ?: "${meta.id}"
+  args = task.ext.args ?: ''
 
-    """
-    echo ${args} // In the form --tolerance 0.15
-    """
+  """
+  echo ${args} // In the form --tolerance 0.15
+  """
 
-    template 'geneticmapconvert.R'
+  template 'geneticmapconvert.R'
 }
 ```
 
@@ -135,19 +135,19 @@ library(stringr)
 
 ### INPUTS PARSING ###
 opt <- list(
-    map_file = "${map_file}",
-    chr = "${meta.chr}",
-    prefix = "${prefix}",
-    tolerance = NULL
+  map_file = "${map_file}",
+  chr = "${meta.chr}",
+  prefix = "${prefix}",
+  tolerance = NULL
 )
 
 process_input(
-    opt = opt,
-    args = "${args}",
-    keys_to_nullify = c("prefix", "tolerance"),
-    expected_files = c("map_file"),
-    expected_double = c("tolerance"),
-    required_opts = c("map_file", "prefix")
+  opt = opt,
+  args = "${args}",
+  keys_to_nullify = c("prefix", "tolerance"),
+  expected_files = c("map_file"),
+  expected_double = c("tolerance"),
+  required_opts = c("map_file", "prefix")
 )
 
 ### MAIN SCRIPT ###
@@ -156,11 +156,11 @@ process_input(
 
 ### END of PROCESS ###
 process_end(
-    packages = list(
-        "r-data.table" = "data.table",
-        "r-stringr" = "stringr"
-    ),
-    task_name = "${task.process}"
+  packages = list(
+    "r-data.table" = "data.table",
+    "r-stringr" = "stringr"
+  ),
+  task_name = "${task.process}"
 )
 ```
 

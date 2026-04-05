@@ -10,4 +10,5 @@ dependencies:
   - conda-forge::r-knitr
   - conda-forge::r-qpdf
   - conda-forge::qpdf
+  - conda-forge::r-lintr
   - bioconda::bioconductor-biocstyle

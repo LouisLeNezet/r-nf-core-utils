@@ -69,7 +69,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck, any::covr
+          extra-packages: any::rcmdcheck, any::covr, any::lintr
           needs: check
 
       - uses: r-lib/actions/check-r-package@v2
@@ -81,7 +81,7 @@ jobs:
         run: |
           lintr::lint_package(
             linters = lintr::linters_with_defaults(
-              lintr::indentation_linter(indent = 4L),
+              lintr::indentation_linter(indent = 2L),
               lintr::cyclocomp_linter(complexity_limit = 55L)
             )
           )

@@ -32,11 +32,11 @@ is_valid_string <- function(input) {
 #' try(valid_string(NULL)) # Error
 #' @export
 valid_string <- function(input) {
-    if (is_valid_string(input)) {
-        trimws(input)
-    } else {
-        stop(input, "is not a valid string")
-    }
+  if (is_valid_string(input)) {
+    trimws(input)
+  } else {
+    stop(input, "is not a valid string")
+  }
 }
 
 #' Turn “null” or empty strings into actual NULL
@@ -57,7 +57,7 @@ valid_string <- function(input) {
 nullify <- function(x) {
   if (is.character(x) && (tolower(x) %in% "null" || trimws(x) == "")) {
     NULL
-  } else if(is.null(x) || is.na(x)) {
+  } else if (is.null(x) || is.na(x)) {
     NULL
   } else {
     x
