@@ -1,0 +1,177 @@
+---
+title: "R nf-core utils tutorial"
+author: "Louis Le Nezet"
+date: "30/03/2026"
+url: "https://github.com/nf-core/r-nf-core-utils"
+output:
+    BiocStyle::html_document:
+        toc: true
+        toc_depth: 3
+        fig_crop: no
+header-includes: \usepackage{tabularx}
+vignette: |
+    %\VignetteIndexEntry{R nf-core utils tutorial}
+    %\VignetteEncoding{UTF-8}
+    %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+    markdown: 
+        wrap: 80
+---
+
+```{r width_control, echo = FALSE}
+options(width = 100)
+```
+
+# Introduction
+
+This package is meant to be use inside Nextflow `template()` script.
+Its aim is to provide useful function to take care of the connection between
+Nextflow variable and R logic.
+
+## Main function
+
+There is two important function in this package.
+
+### Function `process_inputs()`
+
+This function takes as inputs a list of expected options with their default values,
+the argument string and different validation rules.
+
+#### Parameter `opt`
+
+This parameter should list all the different variable that you might use in the
+main script. You can set them to a default value or event directly initialize them
+with Nextflow variable such as:
+
+```{r, eval = FALSE}
+opt <- list(
+  prefix = "${task.ext.prefix}",
+  seed = 1
+)
+```
+
+#### Parameter `args`
+
+The argument string correspond to `${task.ext.args}` in Nextflow and will be parsed
+with `parse_arguments()`. This function expect all arguments to be in the form
+`--key value`.
+Key only argument will be interpreted as `TRUE` such as `--is-test` will give back
+`list("is-test" = "TRUE")`. Beware that is is for the moment a string value.
+
+If you need spaces for one value, use bracket around it, such as `--key "value with space"`.
+All the key / value pairs will then overwrite their counter part in the options list
+passe to `process_inputs()`.
+
+#### Validation rules
+
+The `process_inputs()` function will enforce the following rules to the keys listed:
+
+- `keys_to_nullify`: will be set to R `NULL` value if is "null" or empty
+- `expected_files`: these paths should be existing files
+- `expected_folders`: these path should be existing folder
+- `expected_double`: these values will be converted with `as.double()` or should be `NULL`
+- `expected_integer`: these values will be converted with `as.integer()` or should be `NULL`
+- `expected_boolean`: these values will be converted to TRUE/FALSE or should be `NULL`
+accepted values are:
+  - TRUE: 1, yes, true
+  - FALSE: 0, no, false
+- `required_opts`: these keys should be non-null values
+
+### Function `process_end()`
+
+This function will emit a `versions.yml` and a `R_sessionInfo.log` file in the directory
+provided. The version file will be populated with the R version, the version of nfcore.utils
+and the version of the additional packages given.
+
+#### Parameter `packages`
+
+This parameter should be a named list where the name correspond to the conda package name
+and the value the R package name.
+
+Such as:
+
+```{r, eval = FALSE}
+process_end(
+  packages = list(
+    "r-stats" = "stats"
+  ),
+  task_name = "${task.process}"
+)
+```
+
+## Usage example
+
+If we take for example the [`custom/geneticmapconvert` process in nf-core modules](https://nf-co.re/modules/custom_geneticmapconvert/).
+
+The nextflow process is the following:
+
+```{groovy, eval = FALSE}
+process CUSTOM_GENETICMAPCONVERT {
+  tag "$meta.id"
+  label 'process_single'
+
+  input:
+  tuple val(meta), path(map_file)
+
+  output:
+  tuple val(meta), path("${prefix}.glimpse.map"), emit: glimpse_map
+  path "versions.yml", emit: versions_geneticmapconvert, topic: versions
+
+  when:
+  task.ext.when == null || task.ext.when
+
+  script:
+  prefix = task.ext.prefix ?: "${meta.id}"
+  args = task.ext.args ?: ''
+
+  """
+  echo ${args} // In the form --tolerance 0.15
+  """
+
+  template 'geneticmapconvert.R'
+}
+```
+
+Then in the `templates/geneticmapconvert.R` we use the following
+
+```{r, eval = FALSE}
+library(nfcore.utils)
+library(data.table)
+library(stringr)
+
+### INPUTS PARSING ###
+opt <- list(
+  map_file = "${map_file}",
+  chr = "${meta.chr}",
+  prefix = "${prefix}",
+  tolerance = NULL
+)
+
+process_input(
+  opt = opt,
+  args = "${args}",
+  keys_to_nullify = c("prefix", "tolerance"),
+  expected_files = c("map_file"),
+  expected_double = c("tolerance"),
+  required_opts = c("map_file", "prefix")
+)
+
+### MAIN SCRIPT ###
+
+...
+
+### END of PROCESS ###
+process_end(
+  packages = list(
+    "r-data.table" = "data.table",
+    "r-stringr" = "stringr"
+  ),
+  task_name = "${task.process}"
+)
+```
+
+# Session information
+
+```{r}
+sessionInfo()
+```

@@ -4,9 +4,12 @@
 .*\.lintr
 ^\\.gitignore$
 \.vscode
-LICENSE
 _\.new\.png$
 ^codecov\.yml$
 \.covrignore
 pkgdown
 Rplots.pdf
+CODE_OF_CONDUCT.md
+^LICENSE\.md$
+^doc$
+^Meta$

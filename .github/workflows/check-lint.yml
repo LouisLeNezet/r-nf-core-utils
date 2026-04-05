@@ -45,7 +45,6 @@ jobs:
         config:
           - {os: macOS-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
-          - {os: ubuntu-latest,  r: 'devel', http-user-agent: 'release'}
           - {os: ubuntu-latest,  r: 'release'}
           - {os: ubuntu-latest,  r: 'oldrel-1'}
 
@@ -69,7 +68,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck
+          extra-packages: any::rcmdcheck, any::covr, any::lintr, any::cyclocomp, local::.
           needs: check
 
       - uses: r-lib/actions/check-r-package@v2
@@ -81,13 +80,34 @@ jobs:
         run: |
           lintr::lint_package(
             linters = lintr::linters_with_defaults(
-              lintr::indentation_linter(indent = 4L),
+              lintr::indentation_linter(indent = 2L),
               lintr::cyclocomp_linter(complexity_limit = 55L)
             )
           )
         shell: Rscript {0}
         env:
           LINTR_ERROR_ON_LINT: true
+
+      - name: Test coverage
+        if: env.run_covr == 'true' && runner.os == 'Linux'
+        env:
+          SKIP_SHINY_TESTS: "TRUE"
+        run: |
+          cov <- covr::package_coverage(
+            quiet = FALSE,
+            clean = FALSE,
+            install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"), "package")
+          )
+          covr::to_cobertura(cov)
+        shell: Rscript {0}
+
+      - uses: codecov/codecov-action@v5
+        if: env.run_covr == 'true' && runner.os == 'Linux'
+        with:
+          files: ./cobertura.xml
+          plugin: noop
+          disable_search: true
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Debug check
         if : failure()
