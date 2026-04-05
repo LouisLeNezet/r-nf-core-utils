@@ -101,7 +101,7 @@ jobs:
           covr::to_cobertura(cov)
         shell: Rscript {0}
 
-      - uses: codecov/codecov-action@v4
+      - uses: codecov/codecov-action@v5
         if: env.run_covr == 'true' && runner.os == 'Linux'
         with:
           file: ./cobertura.xml
