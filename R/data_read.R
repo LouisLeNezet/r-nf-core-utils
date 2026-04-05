@@ -1,3 +1,6 @@
+#' @importFrom utils read.delim
+NULL
+
 #' Flexibly read CSV or TSV files
 #'
 #' The following rules are applied:

@@ -7,7 +7,9 @@ Authors@R: c(
     person("Louis", "Le Nezet", email="louislenezet@gmail.com",
         role=c("aut","cre","ctb"), comment = c(ORCID = "0009-0000-0202-2703"))
     )
-Depends: R (>= 4.4.0)
+Depends:
+    R (>= 4.4.0),
+    utils
 Description: Routines functions to handle Nextflow input and perform validity check.
 License: MIT + file LICENSE
 Encoding: UTF-8

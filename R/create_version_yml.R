@@ -1,3 +1,6 @@
+#' @importFrom utils installed.packages packageVersion sessionInfo tail
+NULL
+
 #' Create versions.yml file
 #'
 #' This function allows to automatically create the

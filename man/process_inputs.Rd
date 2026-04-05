@@ -18,32 +18,43 @@ process_inputs(
 \arguments{
 \item{opt}{A list of default options.}
 
-\item{args}{A character vector of command-line arguments to override defaults.}
+\item{args}{A character vector of command-line arguments to override
+defaults.}
 
 \item{keys_to_nullify}{A character vector of keys that should be nullified.}
 
-\item{expected_files}{A character vector of keys in \code{opt} that are expected to be file paths.}
+\item{expected_files}{A character vector of keys in \code{opt} that are
+expected to be file paths.}
 
-\item{expected_folders}{A character vector of keys in \code{opt} that are expected to be folder paths.}
+\item{expected_folders}{A character vector of keys in \code{opt} that are
+expected to be folder paths.}
 
-\item{expected_double}{A character vector of keys in \code{opt} that are expected to be float values.}
+\item{expected_double}{A character vector of keys in \code{opt} that are
+expected to be float values.}
 
-\item{expected_integer}{A character vector of keys in \code{opt} that are expected to be integer values.}
+\item{expected_integer}{A character vector of keys in \code{opt} that are
+expected to be integer values.}
 
-\item{required_opts}{A character vector of keys in \code{opt} that are required and must not be null or empty.}
+\item{required_opts}{A character vector of keys in \code{opt} that are
+required and must not be null or empty.}
 }
 \value{
 A list of processed options with overrides applied and validated.
 }
 \description{
-This function processes input parameters and files, applying parameter overrides,
-validating expected keys and files, and ensuring that the provided file paths are valid.
+This function processes input parameters and files, applying parameter
+overrides, validating expected keys and files, and ensuring that the
+provided file paths are valid.
 }
 \examples{
 td <- withr::local_tempdir()
 test_file_path <- file.path(td, "test_file.txt")
 file.create(test_file_path)
-options <- list(input_file = test_file_path, output_file = "prefix", threshold = 0.5)
+options <- list(
+  input_file = test_file_path,
+  output_file = "prefix",
+  threshold = 0.5
+)
 args <- c("--threshold 0.7")
 processed_options <- process_inputs(
   options, args,
