@@ -15,6 +15,11 @@ test_that("parse_arguments", {
   )
 
   expect_equal(
+    parse_arguments('--tools --test-value "value with--dash"'),
+    list("tools" = "TRUE", "test-value" = "value with--dash")
+  )
+
+  expect_equal(
     parse_arguments(NULL),
     list()
   )

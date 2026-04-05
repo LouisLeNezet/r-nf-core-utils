@@ -55,6 +55,8 @@ opt <- list(
 The argument string correspond to `${task.ext.args}` in Nextflow and will be parsed
 with `parse_arguments()`. This function expect all arguments to be in the form
 `--key value`.
+Key only argument will be interpreted as `TRUE` such as `--is-test` will give back
+`list("is-test" = "TRUE")`. Beware that is is for the moment a string value.
 
 If you need spaces for one value, use bracket around it, such as `--key "value with space"`.
 All the key / value pairs will then overwrite their counter part in the options list
@@ -69,6 +71,10 @@ The `process_inputs()` function will enforce the following rules to the keys lis
 - `expected_folders`: these path should be existing folder
 - `expected_double`: these values will be converted with `as.double()` or should be `NULL`
 - `expected_integer`: these values will be converted with `as.integer()` or should be `NULL`
+- `expected_boolean`: these values will be converted to TRUE/FALSE or should be `NULL`
+accepted values are:
+  - TRUE: 1, yes, true
+  - FALSE: 0, no, false
 - `required_opts`: these keys should be non-null values
 
 ### Function `process_end()`

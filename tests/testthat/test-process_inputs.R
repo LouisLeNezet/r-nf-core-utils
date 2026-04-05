@@ -11,17 +11,19 @@ test_that("process_inputs", {
     value3 = NULL,
     folder = td,
     files = test_file_path,
+    "is-a-test" = NULL,
     seed = 1234
   )
 
   expect_equal(
     process_inputs(
-      opt,
+      opt, args = "--is-a-test",
       keys_to_nullify = c("folder"),
       expected_files = c("files"),
       expected_folders = c("folder"),
       expected_double = c("value"),
       expected_integer = c("value2", "value3"),
+      expected_boolean = c("is-a-test"),
       required_opts = c("tools", "value")
     ),
     list(
@@ -31,6 +33,7 @@ test_that("process_inputs", {
       value3 = NULL,
       folder = td,
       files = test_file_path,
+      "is-a-test" = TRUE,
       seed = 1234
     )
   )
@@ -41,6 +44,7 @@ test_that("process_inputs", {
     value = NULL,
     value2 = "1234",
     files = NULL,
+    "is-a-test" = NULL,
     folder = td
   )
   args <- paste0("--value 1234.56 --files ", test_file_path)
@@ -60,6 +64,7 @@ test_that("process_inputs", {
       "value" = 1234.56,
       "value2" = 1234,
       "files" = test_file_path,
+      "is-a-test" = NULL,
       "folder" = td
     )
   )

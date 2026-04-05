@@ -58,7 +58,7 @@ validate_integer <- function(x, variable_name = NULL) {
   integer_value
 }
 
-#' Check if value is double number
+#' Check if value is a double number
 #'
 #' @param x String to check and convert
 #' @param variable_name Name of the variable to print if error occurs
@@ -84,6 +84,43 @@ validate_double <- function(x, variable_name = NULL) {
     )
   }
   double_value
+}
+
+
+#' Check if value is a boolean
+#' 
+#' Convert to TRUE or FALSE with accepted lowered values as:
+#'  - TRUE: 1, yes, true
+#'  - FALSE: 0, no, false
+#'
+#' @param x String to check and convert
+#' @param variable_name Name of the variable to print if error occurs
+#'
+#' @return x as TRUE/FALSE, or NULL if is null and ERROR if x
+#' isn't convertable to a boolean
+#' @examples
+#' validate_boolean(NULL) # NULL
+#' try(validate_boolean(" ")) # ERROR
+#' try(validate_boolean("Hello World !")) # ERROR
+#' try(validate_boolean(12.4)) # ERROR
+#' validate_boolean("1") # TRUE
+#' validate_boolean(0) # FALSE
+#' @export
+validate_boolean <- function(x, variable_name = NULL) {
+  if (is_null_or_invalid(x, variable_name)) {
+    return(NULL)
+  }
+  valid_x <- tolower(valid_string(x))
+  if (valid_x %in% c("1", "yes", "true", TRUE)) {
+    TRUE
+  } else if (valid_x %in% c("0", "no", "false", FALSE)) {
+    FALSE
+  } else {
+    stop(
+      "Value of ", variable_name, ": ",
+      x, " is not a valid boolean"
+    )
+  }
 }
 
 #' Check if value is an existing folder

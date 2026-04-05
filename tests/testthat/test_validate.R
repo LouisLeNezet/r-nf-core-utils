@@ -79,3 +79,26 @@ test_that("validate_folder", {
     td
   )
 })
+
+test_that("validate_folder", {
+  expect_equal(validate_boolean(NULL, "value"), NULL)
+  expect_error(
+    validate_boolean(" "),
+    regexp = "Please provide  as a valid string"
+  )
+
+  expect_true(validate_boolean(1))
+  expect_true(validate_boolean("YES"))
+  expect_true(validate_boolean("TrUe"))
+  expect_true(validate_boolean(TRUE))
+
+  expect_false(validate_boolean(0))
+  expect_false(validate_boolean("No"))
+  expect_false(validate_boolean("FalSe"))
+  expect_false(validate_boolean(FALSE))
+
+  expect_error(
+    validate_boolean("folder", "test"),
+    regexp = "Value of test: folder is not a valid boolean"
+  )
+})

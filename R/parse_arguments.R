@@ -1,5 +1,7 @@
 #' Parse out options from a string without recourse to optparse
 #'
+#' If only the key is given, the value will be set to TRUE
+#'
 #' @param x Long-form argument list like --opt1 val1 --opt2 val2
 #'
 #' @return named list of options and values similar to optparse
@@ -28,7 +30,7 @@ parse_arguments <- function(x) {
   # Ensure the option vectors are length 2 (key/ value) to catch empty ones
   args_vals <- lapply(args_vals, function(z) {
     if (length(z) == 1) {
-      z <- c(z, NA)
+      z <- c(z, TRUE)
     }
     if (length(z) != 2) {
       stop("arguments should only be in the form --argument value")
