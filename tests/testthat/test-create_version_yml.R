@@ -15,11 +15,12 @@ test_that("create_versions_yml", {
 
   # Parse YAML and compare as R object for deterministic equality
   got <- yaml::read_yaml(yml_path)
+  r_versions <- paste(R.version[["major"]], R.version[["minor"]], sep = ".")
   expected <- list(
     "MY_PROCESS" = list(
-      `r-base` = "4.5.3",
+      `r-base` = r_versions,
       `r-nfcore.utils` = "0.0.1",
-      `r-stats` = "4.5.3",
+      `r-stats` = r_versions,
       `r-cli`   = "3.6.5"
     )
   )
