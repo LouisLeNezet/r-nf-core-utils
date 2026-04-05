@@ -88,7 +88,7 @@ validate_double <- function(x, variable_name = NULL) {
 
 
 #' Check if value is a boolean
-#' 
+#'
 #' Convert to TRUE or FALSE with accepted lowered values as:
 #'  - TRUE: 1, yes, true
 #'  - FALSE: 0, no, false
