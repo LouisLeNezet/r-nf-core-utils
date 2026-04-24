@@ -24,7 +24,7 @@ versions.yml file
 \description{
 This function allows to automatically create the
 versions.yml file used to store the packages used.
-\code{r-base} as well as \code{r-nfcore_utils} versions will
+\code{r-base} as well as \code{r-nfcore.utils} versions will
 automatically be added.
 }
 \examples{

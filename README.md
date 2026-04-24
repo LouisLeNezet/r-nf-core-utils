@@ -1,4 +1,4 @@
-# `R nfcore_utils`: a R package to join Nextflow and R
+# `R nfcore.utils`: a R package to join Nextflow and R
 
 <!-- badges: start -->
   [![Release](https://img.shields.io/badge/release%20version-0.0.1-green.svg)](https://github.com/nf-core/r-nf-core-utils)

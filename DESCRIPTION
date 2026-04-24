@@ -28,5 +28,5 @@ Suggests:
     withr,
     yaml
 Config/testthat/edition: 3
-BugReports: https://github.com/nf-core/r-nfcore-utils/issues
-URL: https://github.com/nf-core/r-nfcore-utils/
+BugReports: https://github.com/nf-core/r-nf-core-utils/issues
+URL: https://github.com/nf-core/r-nf-core-utils
