@@ -1,9 +1,9 @@
 test_that("create_versions_yml", {
+  testthat::skip_if_not_installed("yaml")
   td <- withr::local_tempdir()
   create_versions_yml(
     list(
-      "r-stats" = "stats",
-      "r-cli" = "cli"
+      "r-stats" = "stats"
     ),
     "MY_PROCESS",
     out_dir = td
@@ -20,8 +20,7 @@ test_that("create_versions_yml", {
     "MY_PROCESS" = list(
       `r-base` = r_versions,
       `r-nfcore.utils` = "0.0.1",
-      `r-stats` = r_versions,
-      `r-cli`   = "3.6.5"
+      `r-stats` = r_versions
     )
   )
   expect_equal(got, expected)
