@@ -1,3 +1,8 @@
+## Test environments
+* local Linux (Ubuntu 22.04), R 4.5.3
+* GitHub Actions (Ubuntu, macOS, Windows)
+* win-builder (R-devel, R-release)
+
 ## R CMD check results
 0 errors | 1 warning | 0 notes
 

@@ -39,7 +39,7 @@ remotes::install_github(
 )
 ```
 
-### In R from [CRAN](https://cran.r-project.org/web/packages/nfcore_utils/index.html)
+### In R from CRAN (soon)
 
 ```R
 install.packages("nfcore.utils")
@@ -125,7 +125,7 @@ Additional contributors were [XXXXX](https://github.com/XXXXX).
 
 If you would like to contribute to this package, please see the [contributing guidelines](.github/CONTRIBUTING.md).
 
-For further information or help, don't hesitate to get in touch on the [Slack `#nf-core-r-utils` channel](https://nfcore.slack.com/channels/nf-core-r-utils) (you can join with [this invite](https://nf-co.re/join/slack)).
+For further information or help, don't hesitate to get in touch on the Slack `#r-nf-core-utils` channel (you can join with [this invite](https://nf-co.re/join)).
 
 ## Citations
 
