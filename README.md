@@ -24,7 +24,7 @@
 ### With conda-forge
 
 ```bash
-mamba create -n env_r_nfcore_utils conda-forge::r-nfcore_utils
+mamba create -n env_r_nfcore_utils conda-forge::r-nfcore.utils
 mamba activate env_r_nfcore_utils
 ```
 
@@ -34,15 +34,16 @@ mamba activate env_r_nfcore_utils
 if (!require("remotes", quietly = TRUE))
     install.packages("remotes")
 
-remotes::install_github("nf-core/r-nf-core-utils",
-    build_vignettes=TRUE
+remotes::install_github(
+  "nf-core/r-nf-core-utils",
+  build_vignettes=TRUE
 )
 ```
 
 ### In R from [CRAN](https://cran.r-project.org/web/packages/nfcore_utils/index.html)
 
 ```R
-install.packages("nfcore_utils")
+install.packages("nfcore.utils")
 ```
 
 ## Usage example in a Nextflow template
