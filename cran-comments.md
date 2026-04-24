@@ -8,7 +8,5 @@
   not from the package itself. It is commonly observed on systems where
   this locale is unavailable and does not affect package functionality.
 
-* This is a new release.
-
 ## Comments
 Initial submission.

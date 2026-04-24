@@ -1,8 +1,7 @@
 # `R nfcore_utils`: a R package to join Nextflow and R
 
 <!-- badges: start -->
-  [![Release](https://img.shields.io/badge/release%20version-0.0.1-green.svg)](https://github.com/nf-core/nf-core-r-utils)
-  [![codecov](https://codecov.io/github/louislenezet/r-nf-core-utils/branch/dev/graph/badge.svg?token=A3EGOR8AUG)](https://codecov.io/github/louislenezet/r-nf-core-utils)
+  [![Release](https://img.shields.io/badge/release%20version-0.0.1-green.svg)](https://github.com/nf-core/r-nf-core-utils)
   ![install with conda-forge](https://img.shields.io/badge/install%20with-conda-forge-brightgreen.svg?style=flat)
 <!-- badges: end -->
 
@@ -14,7 +13,7 @@
       It also perform validity check on the variable passed to ensure proper execution.
     </td>
     <td style="width:25%; text-align:center; vertical-align:center;">
-      <img src="https://github.com/nf-core/nf-core-r-utils/raw/devel/inst/figures/icon_nf-core_utils.png" style="max-height:200px;" />
+      <img src="https://github.com/nf-core/r-nf-core-utils/raw/main/inst/figures/icon_nf-core_utils.png" style="max-height:200px;" />
     </td>
   </tr>
 </table>
