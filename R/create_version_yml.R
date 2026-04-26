@@ -5,7 +5,7 @@ NULL
 #'
 #' This function allows to automatically create the
 #' versions.yml file used to store the packages used.
-#' `r-base` as well as `r-nfcore_utils` versions will
+#' `r-base` as well as `r-nfcore.utils` versions will
 #' automatically be added.
 #'
 #' @param packages Named list of packages to add to  the

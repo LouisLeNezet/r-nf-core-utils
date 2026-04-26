@@ -1,4 +1,4 @@
-# `R nfcore_utils`: a R package to join Nextflow and R
+# `R nfcore.utils`: a R package to join Nextflow and R
 
 <!-- badges: start -->
   [![Release](https://img.shields.io/badge/release%20version-0.0.1-green.svg)](https://github.com/nf-core/r-nf-core-utils)
@@ -39,7 +39,7 @@ remotes::install_github(
 )
 ```
 
-### In R from [CRAN](https://cran.r-project.org/web/packages/nfcore_utils/index.html)
+### In R from CRAN (soon)
 
 ```R
 install.packages("nfcore.utils")
@@ -123,9 +123,9 @@ Additional contributors were [XXXXX](https://github.com/XXXXX).
 
 ## Contributions and Support
 
-If you would like to contribute to this package, please see the [contributing guidelines](.github/CONTRIBUTING.md).
+If you would like to contribute to this package, please see the [contributing guidelines](inst/CONTRIBUTING.md).
 
-For further information or help, don't hesitate to get in touch on the [Slack `#nf-core-r-utils` channel](https://nfcore.slack.com/channels/nf-core-r-utils) (you can join with [this invite](https://nf-co.re/join/slack)).
+For further information or help, don't hesitate to get in touch on the Slack `#r-nf-core-utils` channel (you can join with [this invite](https://nf-co.re/join)).
 
 ## Citations
 
@@ -137,4 +137,4 @@ If you use R nf-core/utils for your analysis, please cite it using the `nf-core`
 >
 > _Nat Biotechnol._ 2020 Feb 13. doi: [10.1038/s41587-020-0439-x](https://dx.doi.org/10.1038/s41587-020-0439-x).
 
-An extensive list of references for the tools used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file.
+The citation entry can be found in the [`CITATIONS`](inst/CITATION) file.
