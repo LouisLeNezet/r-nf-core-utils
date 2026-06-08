@@ -2,7 +2,7 @@ test_that("create_versions_yml", {
   td <- withr::local_tempdir()
   create_versions_yml(
     list(
-      "r-stats" = "stats",
+      "r-stats" = "stats"
     ),
     "MY_PROCESS",
     out_dir = td
