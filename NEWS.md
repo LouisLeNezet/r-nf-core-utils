@@ -5,8 +5,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.0.2 [2026-06-08]
 
-Initial release of nf-core/r-utils
-
 ### `Fix`
 
 - Fix and add test for empty args string.
