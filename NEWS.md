@@ -3,6 +3,14 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.0.2 [2026-06-08]
+
+Initial release of nf-core/r-utils
+
+### `Fix`
+
+- Fix and add test for empty args string.
+
 ## 0.0.1 [2026-04-05]
 
 Initial release of nf-core/r-utils

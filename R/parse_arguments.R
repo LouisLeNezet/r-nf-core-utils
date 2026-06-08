@@ -10,7 +10,7 @@
 #' parse_arguments(' --opt1-extra "value with space" --opt2 val2 ')
 #' @export
 parse_arguments <- function(x) {
-  if (is.null(x)) {
+  if (!is_valid_string(x)) {
     return(list())
   }
 

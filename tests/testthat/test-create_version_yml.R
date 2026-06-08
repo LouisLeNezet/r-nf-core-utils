@@ -19,7 +19,7 @@ test_that("create_versions_yml", {
   expected <- list(
     "MY_PROCESS" = list(
       `r-base` = r_versions,
-      `r-nfcore.utils` = "0.0.1",
+      `r-nfcore.utils` = "0.0.2",
       `r-stats` = r_versions,
       `r-cli`   = "3.6.5"
     )

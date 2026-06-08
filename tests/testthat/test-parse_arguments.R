@@ -23,14 +23,14 @@ test_that("parse_arguments", {
     parse_arguments(NULL),
     list()
   )
+
+  expect_equal(
+    parse_arguments("   "),
+    list()
+  )
 })
 
 test_that("parse_arguments errors", {
-  expect_error(
-    parse_arguments("   "),
-    regexp = ".*is not a valid string"
-  )
-
   expect_error(
     parse_arguments("--good arg ---bad test"),
     regexp = "arguments should only start with two dash"
@@ -48,6 +48,11 @@ test_that("parse_arguments errors", {
 
   expect_error(
     parse_arguments("bad test"),
+    regexp = ".*is not written as --argument value"
+  )
+
+  expect_error(
+    parse_arguments("NULL"),
     regexp = ".*is not written as --argument value"
   )
 })

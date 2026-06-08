@@ -38,6 +38,28 @@ test_that("process_inputs", {
     )
   )
 
+  expect_equal(
+    process_inputs(
+      opt, args = "",
+      keys_to_nullify = c("folder"),
+      expected_files = c("files"),
+      expected_folders = c("folder"),
+      expected_double = c("value"),
+      expected_integer = c("value2", "value3"),
+      required_opts = c("tools", "value")
+    ),
+    list(
+      tools = "default",
+      value = 1234.56,
+      value2 = 1234,
+      value3 = NULL,
+      folder = td,
+      files = test_file_path,
+      "is-a-test" = NULL,
+      seed = 1234
+    )
+  )
+
   # Pass through arguments
   opt <- list(
     tools = "default",
