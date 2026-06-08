@@ -1,9 +1,9 @@
 # `R nfcore_utils`: a R package to join Nextflow and R
 
 <!-- badges: start -->
-  [![Release](https://img.shields.io/badge/release%20version-0.0.2-green.svg)](https://github.com/nf-core/nf-core-r-utils)
+  [![Release](https://img.shields.io/badge/version-0.0.2-brightgreen.svg)](https://github.com/nf-core/nf-core-r-utils)
   [![codecov](https://codecov.io/gh/nf-core/r-nf-core-utils/graph/badge.svg?token=A3EGOR8AUG)](https://codecov.io/gh/nf-core/r-nf-core-utils)
-  ![install with conda-forge](https://img.shields.io/badge/install%20with-conda-forge-brightgreen.svg?style=flat)
+  [![install with conda-forge](https://img.shields.io/badge/install%20with-conda%20forge-brightgreen.svg?style=flat)](https://anaconda.org/channels/conda-forge/packages/r-nfcore.utils/overview)
 <!-- badges: end -->
 
 <table>
