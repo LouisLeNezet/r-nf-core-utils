@@ -52,7 +52,7 @@ process_inputs <- function(
   required_opts = NULL
 ) {
   # Apply parameter overrides
-  args_opt <- parse_arguments(args)
+  args_opt <- parse_arguments(nullify(args))
 
   for (ao in names(args_opt)) {
     if (! ao %in% names(opt)) {
