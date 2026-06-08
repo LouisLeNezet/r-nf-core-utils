@@ -113,7 +113,7 @@ browseVignettes("nfcore.utils")
 utils::news(package="nfcore.utils")
 
 # Or to cite nfcore.utils
-citation("nfcore.utils")r-nf-core-utils
+citation("nfcore.utils")
 ```
 
 ## Credits
