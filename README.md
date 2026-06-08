@@ -1,9 +1,14 @@
-# `R nfcore_utils`: a R package to join Nextflow and R
+# `R nfcore.utils`: a R package to join Nextflow and R
 
 <!-- badges: start -->
+<<<<<<< dev
   [![Release](https://img.shields.io/badge/version-0.0.2-brightgreen.svg)](https://github.com/nf-core/nf-core-r-utils)
   [![codecov](https://codecov.io/gh/nf-core/r-nf-core-utils/graph/badge.svg?token=A3EGOR8AUG)](https://codecov.io/gh/nf-core/r-nf-core-utils)
   [![install with conda-forge](https://img.shields.io/badge/install%20with-conda%20forge-brightgreen.svg?style=flat)](https://anaconda.org/channels/conda-forge/packages/r-nfcore.utils/overview)
+=======
+  [![Release](https://img.shields.io/badge/release%20version-0.0.1-green.svg)](https://github.com/nf-core/r-nf-core-utils)
+  ![install with conda-forge](https://img.shields.io/badge/install%20with-conda-forge-brightgreen.svg?style=flat)
+>>>>>>> main
 <!-- badges: end -->
 
 <table>
@@ -14,7 +19,7 @@
       It also perform validity check on the variable passed to ensure proper execution.
     </td>
     <td style="width:25%; text-align:center; vertical-align:center;">
-      <img src="https://github.com/nf-core/nf-core-r-utils/raw/devel/inst/figures/icon_nf-core_utils.png" style="max-height:200px;" />
+      <img src="https://github.com/nf-core/r-nf-core-utils/raw/main/inst/figures/icon_nf-core_utils.png" style="max-height:200px;" />
     </td>
   </tr>
 </table>
@@ -34,12 +39,17 @@ mamba activate env_r_nfcore_utils
 if (!require("remotes", quietly = TRUE))
     install.packages("remotes")
 
-remotes::install_github("nf-core/r-nf-core-utils",
-    build_vignettes=TRUE
+remotes::install_github(
+  "nf-core/r-nf-core-utils",
+  build_vignettes=TRUE
 )
 ```
 
+<<<<<<< dev
 ### In R from [CRAN](https://cran.r-project.org/web/packages/nfcore.utils/index.html)
+=======
+### In R from CRAN (soon)
+>>>>>>> main
 
 ```R
 install.packages("nfcore.utils")
@@ -123,9 +133,9 @@ Additional contributors were [XXXXX](https://github.com/XXXXX).
 
 ## Contributions and Support
 
-If you would like to contribute to this package, please see the [contributing guidelines](.github/CONTRIBUTING.md).
+If you would like to contribute to this package, please see the [contributing guidelines](inst/CONTRIBUTING.md).
 
-For further information or help, don't hesitate to get in touch on the [Slack `#nf-core-r-utils` channel](https://nfcore.slack.com/channels/nf-core-r-utils) (you can join with [this invite](https://nf-co.re/join/slack)).
+For further information or help, don't hesitate to get in touch on the Slack `#r-nf-core-utils` channel (you can join with [this invite](https://nf-co.re/join)).
 
 ## Citations
 
@@ -137,4 +147,4 @@ If you use R nf-core/utils for your analysis, please cite it using the `nf-core`
 >
 > _Nat Biotechnol._ 2020 Feb 13. doi: [10.1038/s41587-020-0439-x](https://dx.doi.org/10.1038/s41587-020-0439-x).
 
-An extensive list of references for the tools used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file.
+The citation entry can be found in the [`CITATIONS`](inst/CITATION) file.

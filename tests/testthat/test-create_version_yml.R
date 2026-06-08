@@ -1,4 +1,5 @@
 test_that("create_versions_yml", {
+  testthat::skip_if_not_installed("yaml")
   td <- withr::local_tempdir()
   create_versions_yml(
     list(
