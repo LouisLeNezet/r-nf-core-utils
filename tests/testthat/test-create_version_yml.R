@@ -3,7 +3,6 @@ test_that("create_versions_yml", {
   create_versions_yml(
     list(
       "r-stats" = "stats",
-      "r-cli" = "cli"
     ),
     "MY_PROCESS",
     out_dir = td
@@ -20,8 +19,7 @@ test_that("create_versions_yml", {
     "MY_PROCESS" = list(
       `r-base` = r_versions,
       `r-nfcore.utils` = "0.0.2",
-      `r-stats` = r_versions,
-      `r-cli`   = "3.6.5"
+      `r-stats` = r_versions
     )
   )
   expect_equal(got, expected)
