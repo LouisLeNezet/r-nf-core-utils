@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### `Fix`
 
 - Fix and add test for empty args string.
+- Fix readme and badges
 
 ## 0.0.1 [2026-04-05]
 
