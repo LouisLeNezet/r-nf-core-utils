@@ -1,5 +1,5 @@
 Package: nfcore.utils
-Version: 0.0.1
+Version: 0.0.2
 Date: 2026-03-30
 Title: R nf-core utility functions
 Authors@R: c(
