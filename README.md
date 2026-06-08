@@ -1,7 +1,7 @@
 # `R nfcore.utils`: a R package to join Nextflow and R
 
 <!-- badges: start -->
-  [![Release](https://img.shields.io/badge/version-0.0.2-brightgreen.svg)](https://github.com/nf-core/nf-core-r-utils)
+  [![Release](https://img.shields.io/badge/version-0.0.2-brightgreen.svg)](https://github.com/nf-core/r-nf-core-utils)
   [![codecov](https://codecov.io/gh/nf-core/r-nf-core-utils/graph/badge.svg?token=A3EGOR8AUG)](https://codecov.io/gh/nf-core/r-nf-core-utils)
   [![install with conda-forge](https://img.shields.io/badge/install%20with-conda%20forge-brightgreen.svg?style=flat)](https://anaconda.org/channels/conda-forge/packages/r-nfcore.utils/overview)
 <!-- badges: end -->
@@ -113,7 +113,7 @@ browseVignettes("nfcore.utils")
 utils::news(package="nfcore.utils")
 
 # Or to cite nfcore.utils
-citation("nfcore.utils")
+citation("nfcore.utils")r-nf-core-utils
 ```
 
 ## Credits
