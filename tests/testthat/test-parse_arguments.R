@@ -50,4 +50,9 @@ test_that("parse_arguments errors", {
     parse_arguments("bad test"),
     regexp = ".*is not written as --argument value"
   )
+
+  expect_error(
+    parse_arguments("NULL"),
+    regexp = ".*is not written as --argument value"
+  )
 })
