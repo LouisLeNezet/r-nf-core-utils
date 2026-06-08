@@ -1,9 +1,9 @@
 # `R nfcore_utils`: a R package to join Nextflow and R
 
 <!-- badges: start -->
-  [![Release](https://img.shields.io/badge/release%20version-0.0.2-green.svg)](https://github.com/nf-core/nf-core-r-utils)
-  [![codecov](https://codecov.io/github/louislenezet/r-nf-core-utils/branch/dev/graph/badge.svg?token=A3EGOR8AUG)](https://codecov.io/github/louislenezet/r-nf-core-utils)
-  ![install with conda-forge](https://img.shields.io/badge/install%20with-conda-forge-brightgreen.svg?style=flat)
+  [![Release](https://img.shields.io/badge/version-0.0.2-brightgreen.svg)](https://github.com/nf-core/nf-core-r-utils)
+  [![codecov](https://codecov.io/gh/nf-core/r-nf-core-utils/graph/badge.svg?token=A3EGOR8AUG)](https://codecov.io/gh/nf-core/r-nf-core-utils)
+  [![install with conda-forge](https://img.shields.io/badge/install%20with-conda%20forge-brightgreen.svg?style=flat)](https://anaconda.org/channels/conda-forge/packages/r-nfcore.utils/overview)
 <!-- badges: end -->
 
 <table>
@@ -24,7 +24,7 @@
 ### With conda-forge
 
 ```bash
-mamba create -n env_r_nfcore_utils conda-forge::r-nfcore_utils
+mamba create -n env_r_nfcore_utils conda-forge::r-nfcore.utils
 mamba activate env_r_nfcore_utils
 ```
 
@@ -39,10 +39,10 @@ remotes::install_github("nf-core/r-nf-core-utils",
 )
 ```
 
-### In R from [CRAN](https://cran.r-project.org/web/packages/nfcore_utils/index.html)
+### In R from [CRAN](https://cran.r-project.org/web/packages/nfcore.utils/index.html)
 
 ```R
-install.packages("nfcore_utils")
+install.packages("nfcore.utils")
 ```
 
 ## Usage example in a Nextflow template
