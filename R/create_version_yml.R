@@ -14,23 +14,27 @@ NULL
 #' used in R.
 #' @param task_name Name of the nextflow process.
 #' Typically `${task.process}`
-#' @param out_dir Output directory where the versions.yml will
-#' be written to. Default is the current directory.
+#' @param path_versions Path to the yml file where the versions will
+#' be written to. Default is the in the current directory as
+#' `versions.yml`
 #'
 #' @return versions.yml file
 #'
 #' @examples
 #' td <- withr::local_tempdir()
-#' create_versions_yml(list("r-stats" = "stats"), "MY_PROCESS", td)
+#' create_versions_yml(
+#'   list("r-stats" = "stats"), "MY_PROCESS",
+#'   file.path(td, "my_versions.yml")
+#' )
 #' @export
-create_versions_yml <- function(packages, task_name, out_dir = ".") {
+create_versions_yml <- function(packages, task_name, path_versions = "versions.yml") {
 
   if (!is.list(packages)) {
     stop("packages should be a named list")
   }
 
-  if (!dir.exists(out_dir)) {
-    stop(out_dir, " folder provided does not exist")
+  if (!dir.exists(dirname(path_versions))) {
+    stop(dirname(path_versions), " folder provided does not exist")
   }
 
   version_rbase <- paste(R.version[["major"]], R.version[["minor"]], sep = ".")
@@ -53,7 +57,7 @@ create_versions_yml <- function(packages, task_name, out_dir = ".") {
   writeLines(c(
     paste0(task_name, ":"),
     paste0("    ", names(pkg_lst), ": ", pkg_lst)
-  ), file.path(out_dir, "versions.yml"))
+  ), path_versions)
 }
 
 #' Log R session info
@@ -61,19 +65,20 @@ create_versions_yml <- function(packages, task_name, out_dir = ".") {
 #' This function logs the R session info to a file named `R_sessionInfo.log`
 #' in the specified output directory.
 #'
-#' @param out_dir Output directory where the R session info log will be
-#' written to. Default is the current directory.
+#' @param path_log Path to the file where the R session info log will
+#' be written to. Default is the in the current directory as
+#' `R_sessionInfo.log`.
 #'
 #' @return R session info log
 #' @examples
 #' td <- withr::local_tempdir()
-#' create_log_session_info(td)
+#' create_log_session_info(file.path(td, "session.log"))
 #' @export
-create_log_session_info <- function(out_dir = ".") {
-  if (!dir.exists(out_dir)) {
-    stop(out_dir, " folder provided does not exist")
+create_log_session_info <- function(path_log = "R_sessionInfo.log") {
+  if (!dir.exists(dirname(path_log))) {
+    stop(dirname(path_log), " folder provided does not exist")
   }
-  sink(file.path(out_dir, "R_sessionInfo.log"))
+  sink(path_log)
   print(sessionInfo())
   sink()
 }
@@ -88,9 +93,18 @@ create_log_session_info <- function(out_dir = ".") {
 #' @return versions.yml file and R session info log
 #' @examples
 #' td <- withr::local_tempdir()
-#' process_end(list("r-stats" = "stats"), "MY_PROCESS", td)
+#' process_end(
+#'   list("r-stats" = "stats"),
+#'   "MY_PROCESS",
+#'   file.path(td, "my_versions.yml"),
+#'   file.path(td, "session.log")
+#' )
 #' @export
-process_end <- function(packages, task_name, out_dir = ".") {
-  create_log_session_info(out_dir)
-  create_versions_yml(packages, task_name, out_dir)
+process_end <- function(
+  packages, task_name,
+  path_versions = "versions.yml",
+  path_log = "R_sessionInfo.log"
+) {
+  create_log_session_info(path_log)
+  create_versions_yml(packages, task_name, path_versions)
 }

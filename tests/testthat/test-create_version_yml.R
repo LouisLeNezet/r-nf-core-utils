@@ -1,16 +1,17 @@
 test_that("create_versions_yml", {
   testthat::skip_if_not_installed("yaml")
   td <- withr::local_tempdir()
+  yml_path <- file.path(td, "versions.yml")
+
   create_versions_yml(
     list(
       "r-stats" = "stats"
     ),
     "MY_PROCESS",
-    out_dir = td
+    path_versions = yml_path
   )
 
   # Read produced versions.yml
-  yml_path <- file.path(td, "versions.yml")
   expect_true(file.exists(yml_path))
 
   # Parse YAML and compare as R object for deterministic equality
@@ -44,7 +45,7 @@ test_that("create_versions_yml wrong outdir", {
       "r-cli" = "cli"
     ),
     "MY_PROCESS",
-    out_dir = "wrong_path"
+    path_versions = "wrong_path/yml"
   ), regexp = "wrong_path folder provided does not exist")
 })
 
@@ -79,25 +80,27 @@ test_that("create_versions_yml package not a valid string", {
 
 test_that("create_log_session_info", {
   td <- withr::local_tempdir()
-  create_log_session_info(td)
   log_path <- file.path(td, "R_sessionInfo.log")
+  create_log_session_info(log_path)
   expect_true(file.exists(log_path))
 
   expect_error(create_log_session_info(
-    out_dir = "wrong_path"
+    path_log = "wrong_path/log"
   ), regexp = "wrong_path folder provided does not exist")
 })
 
 test_that("process_end", {
   td <- withr::local_tempdir()
+  log_path <- file.path(td, "R_sessionInfo.log")
+  yml_path <- file.path(td, "versions.yml")
   process_end(
     list(
       "r-stats" = "stats",
       "r-cli" = "cli"
-    ), "MY_PROCESS", out_dir = td
+    ), "MY_PROCESS",
+    path_versions = yml_path,
+    path_log = log_path
   )
-  log_path <- file.path(td, "R_sessionInfo.log")
   expect_true(file.exists(log_path))
-  yml_path <- file.path(td, "versions.yml")
   expect_true(file.exists(yml_path))
 })

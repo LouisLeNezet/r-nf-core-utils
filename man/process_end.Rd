@@ -4,7 +4,12 @@
 \alias{process_end}
 \title{Process end of the workflow}
 \usage{
-process_end(packages, task_name, out_dir = ".")
+process_end(
+  packages,
+  task_name,
+  path_versions = "versions.yml",
+  path_log = "R_sessionInfo.log"
+)
 }
 \arguments{
 \item{packages}{Named list of packages to add to  the
@@ -15,8 +20,13 @@ used in R.}
 \item{task_name}{Name of the nextflow process.
 Typically \verb{$\{task.process\}}}
 
-\item{out_dir}{Output directory where the versions.yml will
-be written to. Default is the current directory.}
+\item{path_versions}{Path to the yml file where the versions will
+be written to. Default is the in the current directory as
+\code{versions.yml}}
+
+\item{path_log}{Path to the file where the R session info log will
+be written to. Default is the in the current directory as
+\code{R_sessionInfo.log}.}
 }
 \value{
 versions.yml file and R session info log
@@ -26,5 +36,10 @@ Create the versions.yml file and log session info at the end of the process.
 }
 \examples{
 td <- withr::local_tempdir()
-process_end(list("r-stats" = "stats"), "MY_PROCESS", td)
+process_end(
+  list("r-stats" = "stats"),
+  "MY_PROCESS",
+  file.path(td, "my_versions.yml"),
+  file.path(td, "session.log")
+)
 }
