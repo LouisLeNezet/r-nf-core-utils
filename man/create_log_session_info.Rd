@@ -4,11 +4,12 @@
 \alias{create_log_session_info}
 \title{Log R session info}
 \usage{
-create_log_session_info(out_dir = ".")
+create_log_session_info(log_path = "R_sessionInfo.log")
 }
 \arguments{
-\item{out_dir}{Output directory where the R session info log will be
-written to. Default is the current directory.}
+\item{log_path}{Path to the file where the R session info log will
+be written to. Default is the in the current directory as
+\code{R_sessionInfo.log}.}
 }
 \value{
 R session info log
@@ -19,5 +20,5 @@ in the specified output directory.
 }
 \examples{
 td <- withr::local_tempdir()
-create_log_session_info(td)
+create_log_session_info(file.path(td, "session.log"))
 }

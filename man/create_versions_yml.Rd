@@ -4,7 +4,7 @@
 \alias{create_versions_yml}
 \title{Create versions.yml file}
 \usage{
-create_versions_yml(packages, task_name, out_dir = ".")
+create_versions_yml(packages, task_name, versions_path = "versions.yml")
 }
 \arguments{
 \item{packages}{Named list of packages to add to  the
@@ -15,8 +15,9 @@ used in R.}
 \item{task_name}{Name of the nextflow process.
 Typically \verb{$\{task.process\}}}
 
-\item{out_dir}{Output directory where the versions.yml will
-be written to. Default is the current directory.}
+\item{versions_path}{Path to the yml file where the versions will
+be written to. Default is the in the current directory as
+\code{versions.yml}}
 }
 \value{
 versions.yml file
@@ -29,5 +30,8 @@ automatically be added.
 }
 \examples{
 td <- withr::local_tempdir()
-create_versions_yml(list("r-stats" = "stats"), "MY_PROCESS", td)
+create_versions_yml(
+  list("r-stats" = "stats"), "MY_PROCESS",
+  file.path(td, "my_versions.yml")
+)
 }

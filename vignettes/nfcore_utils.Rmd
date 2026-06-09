@@ -166,7 +166,9 @@ process_end(
     "r-data.table" = "data.table",
     "r-stringr" = "stringr"
   ),
-  task_name = "${task.process}"
+  task_name = "${task.process}",
+  versions_path = "versions.yml",
+  log_path = "R_sessionInfo.log"
 )
 ```
 
