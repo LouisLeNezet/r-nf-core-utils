@@ -27,7 +27,10 @@ NULL
 #'   file.path(td, "my_versions.yml")
 #' )
 #' @export
-create_versions_yml <- function(packages, task_name, path_versions = "versions.yml") {
+create_versions_yml <- function(
+  packages, task_name,
+  path_versions = "versions.yml"
+) {
 
   if (!is.list(packages)) {
     stop("packages should be a named list")
