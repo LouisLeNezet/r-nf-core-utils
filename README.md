@@ -94,8 +94,8 @@ process_end(
     "r-stats" = "stats" # conda package name = r package name
   ),
   task_name = '"${task.process}":',
-  path_versions = "versions.yml",
-  path_log = "R_sessionInfo.log"
+  versions_path = "versions.yml",
+  log_path = "R_sessionInfo.log"
 )
 ```
 

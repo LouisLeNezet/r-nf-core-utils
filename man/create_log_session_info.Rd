@@ -4,10 +4,10 @@
 \alias{create_log_session_info}
 \title{Log R session info}
 \usage{
-create_log_session_info(path_log = "R_sessionInfo.log")
+create_log_session_info(log_path = "R_sessionInfo.log")
 }
 \arguments{
-\item{path_log}{Path to the file where the R session info log will
+\item{log_path}{Path to the file where the R session info log will
 be written to. Default is the in the current directory as
 \code{R_sessionInfo.log}.}
 }

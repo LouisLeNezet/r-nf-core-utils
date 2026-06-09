@@ -4,7 +4,7 @@
 \alias{create_versions_yml}
 \title{Create versions.yml file}
 \usage{
-create_versions_yml(packages, task_name, path_versions = "versions.yml")
+create_versions_yml(packages, task_name, versions_path = "versions.yml")
 }
 \arguments{
 \item{packages}{Named list of packages to add to  the
@@ -15,7 +15,7 @@ used in R.}
 \item{task_name}{Name of the nextflow process.
 Typically \verb{$\{task.process\}}}
 
-\item{path_versions}{Path to the yml file where the versions will
+\item{versions_path}{Path to the yml file where the versions will
 be written to. Default is the in the current directory as
 \code{versions.yml}}
 }

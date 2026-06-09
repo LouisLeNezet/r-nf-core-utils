@@ -8,7 +8,7 @@ test_that("create_versions_yml", {
       "r-stats" = "stats"
     ),
     "MY_PROCESS",
-    path_versions = yml_path
+    versions_path = yml_path
   )
 
   # Read produced versions.yml
@@ -45,7 +45,7 @@ test_that("create_versions_yml wrong outdir", {
       "r-cli" = "cli"
     ),
     "MY_PROCESS",
-    path_versions = "wrong_path/yml"
+    versions_path = "wrong_path/yml"
   ), regexp = "wrong_path folder provided does not exist")
 })
 
@@ -85,7 +85,7 @@ test_that("create_log_session_info", {
   expect_true(file.exists(log_path))
 
   expect_error(create_log_session_info(
-    path_log = "wrong_path/log"
+    log_path = "wrong_path/log"
   ), regexp = "wrong_path folder provided does not exist")
 })
 
@@ -98,8 +98,8 @@ test_that("process_end", {
       "r-stats" = "stats",
       "r-cli" = "cli"
     ), "MY_PROCESS",
-    path_versions = yml_path,
-    path_log = log_path
+    versions_path = yml_path,
+    log_path = log_path
   )
   expect_true(file.exists(log_path))
   expect_true(file.exists(yml_path))

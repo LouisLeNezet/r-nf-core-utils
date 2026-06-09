@@ -14,7 +14,7 @@ NULL
 #' used in R.
 #' @param task_name Name of the nextflow process.
 #' Typically `${task.process}`
-#' @param path_versions Path to the yml file where the versions will
+#' @param versions_path Path to the yml file where the versions will
 #' be written to. Default is the in the current directory as
 #' `versions.yml`
 #'
@@ -29,15 +29,15 @@ NULL
 #' @export
 create_versions_yml <- function(
   packages, task_name,
-  path_versions = "versions.yml"
+  versions_path = "versions.yml"
 ) {
 
   if (!is.list(packages)) {
     stop("packages should be a named list")
   }
 
-  if (!dir.exists(dirname(path_versions))) {
-    stop(dirname(path_versions), " folder provided does not exist")
+  if (!dir.exists(dirname(versions_path))) {
+    stop(dirname(versions_path), " folder provided does not exist")
   }
 
   version_rbase <- paste(R.version[["major"]], R.version[["minor"]], sep = ".")
@@ -60,7 +60,7 @@ create_versions_yml <- function(
   writeLines(c(
     paste0(task_name, ":"),
     paste0("    ", names(pkg_lst), ": ", pkg_lst)
-  ), path_versions)
+  ), versions_path)
 }
 
 #' Log R session info
@@ -68,7 +68,7 @@ create_versions_yml <- function(
 #' This function logs the R session info to a file named `R_sessionInfo.log`
 #' in the specified output directory.
 #'
-#' @param path_log Path to the file where the R session info log will
+#' @param log_path Path to the file where the R session info log will
 #' be written to. Default is the in the current directory as
 #' `R_sessionInfo.log`.
 #'
@@ -77,11 +77,11 @@ create_versions_yml <- function(
 #' td <- withr::local_tempdir()
 #' create_log_session_info(file.path(td, "session.log"))
 #' @export
-create_log_session_info <- function(path_log = "R_sessionInfo.log") {
-  if (!dir.exists(dirname(path_log))) {
-    stop(dirname(path_log), " folder provided does not exist")
+create_log_session_info <- function(log_path = "R_sessionInfo.log") {
+  if (!dir.exists(dirname(log_path))) {
+    stop(dirname(log_path), " folder provided does not exist")
   }
-  sink(path_log)
+  sink(log_path)
   print(sessionInfo())
   sink()
 }
@@ -105,9 +105,9 @@ create_log_session_info <- function(path_log = "R_sessionInfo.log") {
 #' @export
 process_end <- function(
   packages, task_name,
-  path_versions = "versions.yml",
-  path_log = "R_sessionInfo.log"
+  versions_path = "versions.yml",
+  log_path = "R_sessionInfo.log"
 ) {
-  create_log_session_info(path_log)
-  create_versions_yml(packages, task_name, path_versions)
+  create_log_session_info(log_path)
+  create_versions_yml(packages, task_name, versions_path)
 }

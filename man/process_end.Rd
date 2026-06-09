@@ -7,8 +7,8 @@
 process_end(
   packages,
   task_name,
-  path_versions = "versions.yml",
-  path_log = "R_sessionInfo.log"
+  versions_path = "versions.yml",
+  log_path = "R_sessionInfo.log"
 )
 }
 \arguments{
@@ -20,11 +20,11 @@ used in R.}
 \item{task_name}{Name of the nextflow process.
 Typically \verb{$\{task.process\}}}
 
-\item{path_versions}{Path to the yml file where the versions will
+\item{versions_path}{Path to the yml file where the versions will
 be written to. Default is the in the current directory as
 \code{versions.yml}}
 
-\item{path_log}{Path to the file where the R session info log will
+\item{log_path}{Path to the file where the R session info log will
 be written to. Default is the in the current directory as
 \code{R_sessionInfo.log}.}
 }
