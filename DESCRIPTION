@@ -1,6 +1,6 @@
 Package: nfcore.utils
-Version: 0.0.2
-Date: 2026-06-08
+Version: 0.0.3
+Date: 2026-06-09
 Title: Utilities for Nf-Core Modules
 Authors@R: c(
     person("nf-core", "Community", role="aut"),
