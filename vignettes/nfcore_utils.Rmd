@@ -167,8 +167,8 @@ process_end(
     "r-stringr" = "stringr"
   ),
   task_name = "${task.process}",
-  path_versions = "versions.yml",
-  path_log = "R_sessionInfo.log"
+  versions_path = "versions.yml",
+  log_path = "R_sessionInfo.log"
 )
 ```
 
