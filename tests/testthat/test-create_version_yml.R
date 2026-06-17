@@ -4,10 +4,10 @@ test_that("create_versions_yml", {
   yml_path <- file.path(td, "versions.yml")
 
   create_versions_yml(
-    list(
+    packages = list(
       "r-stats" = "stats"
     ),
-    "MY_PROCESS",
+    task_name = "MY_PROCESS",
     versions_path = yml_path
   )
 

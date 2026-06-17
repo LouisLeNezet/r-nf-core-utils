@@ -1,4 +1,4 @@
-#' @importFrom utils installed.packages packageVersion sessionInfo tail
+#' @importFrom utils packageVersion sessionInfo tail
 NULL
 
 #' Create versions.yml file
@@ -46,11 +46,11 @@ create_versions_yml <- function(
     "r-nfcore.utils" = as.character(packageVersion("nfcore.utils"))
   )
 
-  pkg_available <- rownames(installed.packages())
   for (pkg in names(packages)) {
     conda_name <- valid_string(pkg)
     pkg_name <- valid_string(packages[[pkg]])
-    if (! pkg_name %in% pkg_available) {
+    pkg_presence <- requireNamespace(pkg_name)
+    if (!pkg_presence) {
       stop(pkg_name, " not present in packages available")
     }
     pkg_version <- as.character(packageVersion(pkg_name))
