@@ -1,7 +1,7 @@
 # `R nfcore.utils`: a R package to join Nextflow and R
 
 <!-- badges: start -->
-  [![Release](https://img.shields.io/badge/version-0.0.3-brightgreen.svg)](https://github.com/nf-core/r-nf-core-utils)
+  [![Release](https://img.shields.io/badge/version-0.0.4-brightgreen.svg)](https://github.com/nf-core/r-nf-core-utils)
   [![codecov](https://codecov.io/gh/nf-core/r-nf-core-utils/graph/badge.svg?token=A3EGOR8AUG)](https://app.codecov.io/gh/nf-core/r-nf-core-utils)
   [![install with conda-forge](https://img.shields.io/badge/install%20with-conda%20forge-brightgreen.svg?style=flat)](https://anaconda.org/channels/conda-forge/packages/r-nfcore.utils/overview)
 <!-- badges: end -->
@@ -10,11 +10,11 @@
   <tr>
     <td style="width:75%; vertical-align:center;">
       This package is aimed to anyone wanting to use R script within Nextflow.
-      Its aim is to provide function allowing to lin easily Nextflow parameters to the R logic.
+      Its aim is to provide function allowing to link easily Nextflow parameters to the R logic.
       It also perform validity check on the variable passed to ensure proper execution.
     </td>
     <td style="width:25%; text-align:center; vertical-align:center;">
-      <img src="https://github.com/nf-core/r-nf-core-utils/raw/main/inst/figures/icon_nf-core_utils.png" style="max-height:200px;" />
+      <img src="https://github.com/nf-core/r-nf-core-utils/raw/main/inst/figures/icon_nfcore_utils.png" style="max-height:200px;" />
     </td>
   </tr>
 </table>

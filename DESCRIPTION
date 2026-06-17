@@ -1,7 +1,7 @@
 Package: nfcore.utils
-Version: 0.0.3
-Date: 2026-06-09
-Title: Utilities for Nf-Core Modules
+Version: 0.0.4
+Date: 2026-06-17
+Title: Utilities for 'nf-core' Modules
 Authors@R: c(
     person("nf-core", "Community", role="aut"),
     person("Louis", "Le Nezet", email="louislenezet@gmail.com",
@@ -12,8 +12,9 @@ Depends:
 Imports:
     utils
 Description: Provides utility functions to facilitate the use of R within nf-core modules. 
-    The package helps parse Nextflow inputs and perform validation checks to ensure 
+    The package helps parse 'Nextflow' inputs and perform validation checks to ensure 
     correct parameter handling and reproducible execution.
+    For more details see Ewels (2020) <doi:10.1038/s41587-020-0439-x>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.3.3

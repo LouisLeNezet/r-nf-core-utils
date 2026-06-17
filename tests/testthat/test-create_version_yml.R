@@ -4,10 +4,10 @@ test_that("create_versions_yml", {
   yml_path <- file.path(td, "versions.yml")
 
   create_versions_yml(
-    list(
+    packages = list(
       "r-stats" = "stats"
     ),
-    "MY_PROCESS",
+    task_name = "MY_PROCESS",
     versions_path = yml_path
   )
 
@@ -20,7 +20,7 @@ test_that("create_versions_yml", {
   expected <- list(
     "MY_PROCESS" = list(
       `r-base` = r_versions,
-      `r-nfcore.utils` = "0.0.3",
+      `r-nfcore.utils` = "0.0.4",
       `r-stats` = r_versions
     )
   )

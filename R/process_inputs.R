@@ -25,7 +25,7 @@
 #' td <- withr::local_tempdir()
 #' test_file_path <- file.path(td, "test_file.txt")
 #' file.create(test_file_path)
-#' options <- list(
+#' my_options <- list(
 #'   input_file = test_file_path,
 #'   output_file = "prefix",
 #'   threshold = 0.5,
@@ -33,7 +33,7 @@
 #' )
 #' args <- c("--threshold 0.7 --is-a-test")
 #' processed_options <- process_inputs(
-#'   options, args,
+#'   my_options, args,
 #'   keys_to_nullify = c("input_file", "output_file"),
 #'   expected_files = c("input_file"),
 #'   expected_double = c("threshold"),
