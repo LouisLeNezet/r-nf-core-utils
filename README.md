@@ -10,11 +10,11 @@
   <tr>
     <td style="width:75%; vertical-align:center;">
       This package is aimed to anyone wanting to use R script within Nextflow.
-      Its aim is to provide function allowing to lin easily Nextflow parameters to the R logic.
+      Its aim is to provide function allowing to link easily Nextflow parameters to the R logic.
       It also perform validity check on the variable passed to ensure proper execution.
     </td>
     <td style="width:25%; text-align:center; vertical-align:center;">
-      <img src="https://github.com/nf-core/r-nf-core-utils/raw/main/inst/figures/icon_nf-core_utils.png" style="max-height:200px;" />
+      <img src="https://github.com/nf-core/r-nf-core-utils/raw/main/inst/figures/icon_nfcore_utils.png" style="max-height:200px;" />
     </td>
   </tr>
 </table>
